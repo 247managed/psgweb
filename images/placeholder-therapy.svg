@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
+  <defs>
+    <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#d4effc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d5f5e3;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg1)" rx="12"/>
+  <!-- Decorative elements suggesting a calm therapy environment -->
+  <circle cx="480" cy="80" r="60" fill="rgba(41,128,185,0.08)"/>
+  <circle cx="120" cy="320" r="80" fill="rgba(39,174,96,0.08)"/>
+  <circle cx="300" cy="200" r="100" fill="rgba(41,128,185,0.06)"/>
+  <!-- Plant/leaf motif -->
+  <g transform="translate(300,180)" opacity="0.3">
+    <path d="M0,60 Q0,0 0,-50" stroke="#2980b9" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M-2,20 Q-35,-5 -25,-45 Q-5,-30 -2,0" fill="#27ae60"/>
+    <path d="M2,10 Q35,-15 28,-48 Q8,-32 2,-5" fill="#27ae60"/>
+    <path d="M-1,-45 Q-12,-62 0,-70 Q12,-62 1,-45" fill="#27ae60"/>
+  </g>
+  <!-- Text -->
+  <text x="300" y="310" text-anchor="middle" font-family="Georgia, serif" font-size="18" fill="#1a5276" opacity="0.5">Compassionate Care</text>
+  <text x="300" y="335" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#5d6d7e" opacity="0.4">Professional therapy in a warm setting</text>
+</svg>

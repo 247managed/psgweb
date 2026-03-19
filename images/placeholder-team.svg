@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="350" viewBox="0 0 300 350">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#d4effc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e8f6f3;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="300" height="350" fill="url(#bg3)" rx="12"/>
+  <!-- Stylized person silhouette -->
+  <g transform="translate(150,140)" opacity="0.2">
+    <circle cx="0" cy="-30" r="40" fill="#1a5276"/>
+    <path d="M-55,50 Q-55,10 0,10 Q55,10 55,50 L55,80 L-55,80 Z" fill="#1a5276" rx="10"/>
+  </g>
+  <text x="150" y="280" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#1a5276" opacity="0.5">Team Member</text>
+  <text x="150" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#5d6d7e" opacity="0.4">Professional headshot placeholder</text>
+</svg>

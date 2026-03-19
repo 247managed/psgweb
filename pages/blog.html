@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Blog and mental health insights from Paula S. Gordy LISW, LLC. Articles on anxiety, depression, coping strategies, therapy preparation, BHIS services, couples counseling, and children's mental health in southern Iowa.">
+  <meta name="keywords" content="mental health blog, therapy tips, anxiety, depression, coping strategies, BHIS, couples counseling, children mental health, Paula Gordy, Centerville Iowa, Ottumwa, Bloomfield">
+  <meta name="author" content="Paula S. Gordy LISW, LLC">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Blog &amp; Insights | Paula S. Gordy LISW, LLC">
+  <meta property="og:description" content="Mental health education, tips, and updates from our team. Read articles on anxiety, depression, coping strategies, and more.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+
+  <title>Blog &amp; Insights | Paula S. Gordy LISW, LLC</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Merriweather:wght@400;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../css/styles.css">
+
+  <!-- Blog-Specific Styles -->
+  <style>
+    /* Featured Post */
+    .blog-featured {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      overflow: hidden;
+    }
+    .blog-featured .two-col {
+      align-items: stretch;
+    }
+    .blog-featured .placeholder-img {
+      min-height: 320px;
+      border-radius: 0;
+    }
+    .blog-featured .img-container {
+      min-height: 320px;
+      border-radius: 0;
+    }
+    .blog-featured .img-container img {
+      min-height: 320px;
+      height: 100%;
+      object-fit: cover;
+    }
+    .blog-featured__content {
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .blog-featured__content h2 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.6rem;
+      margin-bottom: 0.75rem;
+      color: var(--charcoal);
+    }
+
+    /* Blog Meta (date/author) */
+    .blog-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      font-size: 0.875rem;
+      color: var(--dark-gray);
+      margin-bottom: 1rem;
+    }
+    .blog-meta__date,
+    .blog-meta__author {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .blog-meta svg {
+      flex-shrink: 0;
+    }
+
+    /* Blog Category Tag */
+    .blog-tag {
+      display: inline-block;
+      background: var(--primary-lightest, #e8f4f8);
+      color: var(--primary-dark, #1a5276);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.75rem;
+    }
+    .blog-tag--green {
+      background: var(--secondary-lightest, #e8f5e9);
+      color: var(--secondary-dark, #2e7d32);
+    }
+
+    /* Blog Post Card */
+    .blog-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .blog-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+    .blog-card .placeholder-img {
+      min-height: 180px;
+      border-radius: 0;
+    }
+    .blog-card .img-container {
+      min-height: 200px;
+      border-radius: 12px 12px 0 0;
+      overflow: hidden;
+    }
+    .blog-card .img-container img {
+      height: 200px;
+      object-fit: cover;
+    }
+    .blog-card__body {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .blog-card__body h3 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+      color: var(--charcoal);
+      line-height: 1.4;
+    }
+    .blog-card__excerpt {
+      color: var(--dark-gray);
+      font-size: 0.925rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      flex: 1;
+    }
+
+    /* Read More Link */
+    .blog-read-more {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: color 0.2s ease;
+    }
+    .blog-read-more:hover {
+      color: var(--primary-dark);
+    }
+    .blog-read-more svg {
+      transition: transform 0.2s ease;
+    }
+    .blog-read-more:hover svg {
+      transform: translateX(3px);
+    }
+
+    /* Details/Summary for expandable content */
+    .blog-article-expand {
+      margin-top: 1rem;
+    }
+    .blog-article-expand summary {
+      cursor: pointer;
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      list-style: none;
+      transition: color 0.2s ease;
+    }
+    .blog-article-expand summary::-webkit-details-marker {
+      display: none;
+    }
+    .blog-article-expand summary::after {
+      content: '';
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 6px solid currentColor;
+      margin-left: 0.35rem;
+      transition: transform 0.2s ease;
+    }
+    .blog-article-expand[open] summary::after {
+      transform: rotate(180deg);
+    }
+    .blog-article-expand summary:hover {
+      color: var(--primary-dark);
+    }
+    .blog-article-expand .blog-article-body {
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--light-gray, #e0e0e0);
+      line-height: 1.75;
+      color: var(--charcoal);
+    }
+    .blog-article-body p {
+      margin-bottom: 1rem;
+    }
+    .blog-article-body p:last-child {
+      margin-bottom: 0;
+    }
+    .blog-article-body h4 {
+      font-family: 'Merriweather', serif;
+      font-size: 1.05rem;
+      margin-top: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: var(--primary-dark, #1a5276);
+    }
+    .blog-article-body ul {
+      margin-bottom: 1rem;
+      padding-left: 1.25rem;
+    }
+    .blog-article-body ul li {
+      margin-bottom: 0.5rem;
+      color: var(--dark-gray);
+    }
+
+    /* Blog Categories Sidebar/Section */
+    .blog-categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+    .blog-categories a {
+      display: inline-block;
+      padding: 0.5rem 1.25rem;
+      border-radius: 25px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: 1px solid var(--light-gray, #e0e0e0);
+      color: var(--charcoal);
+      background: #fff;
+    }
+    .blog-categories a:hover,
+    .blog-categories a.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    /* Featured article details styles */
+    .blog-featured .blog-article-expand {
+      border-top: 1px solid var(--light-gray, #e0e0e0);
+      padding-top: 1rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .blog-featured .two-col {
+        grid-template-columns: 1fr;
+      }
+      .blog-featured .placeholder-img {
+        min-height: 200px;
+      }
+      .blog-featured__content h2 {
+        font-size: 1.35rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Skip Navigation -->
+  <a href="#main-content" class="skip-nav">Skip to main content</a>
+
+  <!-- Crisis Banner -->
+  <div class="crisis-banner" role="alert">
+    <div class="container">
+      <p><strong>In Crisis?</strong> Call or text <a href="tel:988">988</a> (Suicide &amp; Crisis Lifeline) or text <strong>HOME</strong> to <a href="sms:741741">741741</a> (Crisis Text Line)</p>
+    </div>
+  </div>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar__contact">
+        <span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <a href="tel:6418562688">(641) 856-2688</a>
+        </span>
+        <span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:info@paulagordy.com">info@paulagordy.com</a>
+        </span>
+        <span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 3H3v18h18V3z"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          Fax: (641) 856-2690
+        </span>
+      </div>
+      <div class="top-bar__portal">
+        <a href="https://ehr.paulagordy.com/portal/login" target="_blank" rel="noopener noreferrer">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          Client Portal
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="site-header">
+    <nav class="nav-main" aria-label="Main navigation">
+      <div class="container">
+        <div class="nav-logo">
+          <a href="../index.html">
+            <div class="nav-logo__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </div>
+            <div class="nav-logo__text">
+              <span class="nav-logo__name">Paula S. Gordy LISW, LLC</span>
+              <span class="nav-logo__tagline">Outpatient Mental Health Services</span>
+            </div>
+          </a>
+        </div>
+
+        <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="nav-menu" id="nav-menu" role="menubar">
+          <li role="none"><a href="../index.html" role="menuitem">Home</a></li>
+          <li role="none"><a href="about.html" role="menuitem">About Us</a></li>
+          <li class="nav-dropdown" role="none">
+            <a href="services.html" class="nav-dropdown__trigger" role="menuitem" aria-haspopup="true" aria-expanded="false">Services</a>
+            <ul class="nav-dropdown__menu" role="menu" aria-label="Services submenu">
+              <li role="none"><a href="services.html" role="menuitem">All Services</a></li>
+              <li role="none"><a href="services.html#individual" role="menuitem">Individual Counseling</a></li>
+              <li role="none"><a href="services.html#couples" role="menuitem">Couples Counseling</a></li>
+              <li role="none"><a href="services.html#group" role="menuitem">Group Therapy</a></li>
+              <li role="none"><a href="services.html#bhis" role="menuitem">BHIS Services</a></li>
+            </ul>
+          </li>
+          <li role="none"><a href="contact.html" role="menuitem">Locations</a></li>
+          <li role="none"><a href="insurance.html" role="menuitem">Insurance &amp; Billing</a></li>
+          <li class="nav-dropdown" role="none">
+            <a href="resources.html" class="nav-dropdown__trigger" role="menuitem" aria-haspopup="true" aria-expanded="false">Client Resources</a>
+            <ul class="nav-dropdown__menu" role="menu" aria-label="Client Resources submenu">
+              <li role="none"><a href="resources.html" role="menuitem">New Patients</a></li>
+              <li role="none"><a href="forms.html" role="menuitem">Forms &amp; Documents</a></li>
+              <li role="none"><a href="resources.html#education" role="menuitem">Client Education</a></li>
+              <li role="none"><a href="resources.html#faq" role="menuitem">FAQ</a></li>
+              <li role="none"><a href="blog.html" role="menuitem">Blog</a></li>
+            </ul>
+          </li>
+          <li role="none"><a href="contact.html" role="menuitem">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero" aria-label="Page heading">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb navigation">
+        <a href="../index.html">Home</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">Blog</span>
+      </nav>
+      <h1>Blog &amp; Insights</h1>
+      <p>Mental health education, tips, and updates from our team</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- ============================
+         SECTION: Featured / Latest Post
+         ============================ -->
+    <section class="section" aria-labelledby="featured-post-heading">
+      <div class="container">
+        <div class="text-center mb-2xl">
+          <p class="section-subtitle">Latest from Our Team</p>
+          <h2 id="featured-post-heading" class="sr-only">Featured Post</h2>
+        </div>
+
+        <article class="blog-featured" aria-label="Featured blog post">
+          <div class="two-col" style="gap: 0;">
+            <div>
+              <div class="img-container" aria-label="Understanding anxiety">
+                <img src="../images/Mental-Health-Treatment.jpg" alt="Therapist taking notes during a mental health session" loading="lazy">
+              </div>
+            </div>
+            <div class="blog-featured__content">
+              <span class="blog-tag">Featured</span>
+              <h2 style="font-size: 1.6rem;">Understanding Anxiety: Signs, Symptoms, and When to Seek Help</h2>
+              <div class="blog-meta">
+                <span class="blog-meta__date">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  February 5, 2026
+                </span>
+                <span class="blog-meta__author">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  Paula S. Gordy, LISW
+                </span>
+              </div>
+              <p style="color: var(--dark-gray); line-height: 1.7;">Anxiety is something most people experience at some point in their lives, but when does normal worry cross the line into something more serious? In this article, we explore the difference between everyday anxiety and an anxiety disorder, the physical and emotional signs to watch for, and why reaching out for support is a sign of strength, not weakness.</p>
+
+              <details class="blog-article-expand">
+                <summary>Read Full Article</summary>
+                <div class="blog-article-body">
+                  <h4>What Is Anxiety, and How Does It Differ from Normal Worry?</h4>
+                  <p>Everyone feels anxious from time to time. It is a normal, even healthy, response to stressful situations like starting a new job, taking an exam, or facing a difficult conversation. Normal worry tends to be temporary, tied to a specific event, and manageable. You might feel nervous before a presentation, but once it is over, the feeling fades. Anxiety becomes a concern when it persists beyond the triggering event, when it seems to come out of nowhere, or when it begins to interfere with your daily life. An anxiety disorder is not just feeling stressed. It is a pattern of excessive, persistent worry that can feel overwhelming and difficult to control, even when there is no clear reason for alarm.</p>
+
+                  <h4>Common Physical and Emotional Symptoms</h4>
+                  <p>Anxiety shows up in both the mind and the body. Emotionally, you might experience a constant sense of dread or unease, racing thoughts, difficulty concentrating, irritability, or a feeling that something bad is about to happen. Physically, anxiety can cause a racing or pounding heart, shortness of breath, muscle tension or headaches, stomach upset or nausea, sweating, trembling, dizziness, or difficulty sleeping. Many people do not realize that these physical symptoms are connected to anxiety because they feel so real and immediate. If you are experiencing a combination of these symptoms on a regular basis, it may be worth exploring whether anxiety is playing a role.</p>
+
+                  <h4>When Everyday Anxiety Crosses into a Disorder</h4>
+                  <p>There is no single moment when normal anxiety becomes a disorder, but there are some general signs that suggest it may be time to seek professional support. Consider reaching out if your worry feels out of proportion to the situation, if you find yourself avoiding people, places, or activities because of anxiety, if anxiety is affecting your work, relationships, or ability to enjoy life, if you have tried to manage it on your own but nothing seems to help, or if you are using alcohol, substances, or other unhealthy coping methods to manage your feelings. Anxiety disorders are among the most common mental health conditions, and they are also among the most treatable. There is no reason to wait until things become unmanageable before asking for help.</p>
+
+                  <h4>Treatment Options Available at Our Practice</h4>
+                  <p>At Paula S. Gordy LISW, LLC, we offer several evidence-based approaches for treating anxiety, including Cognitive Behavioral Therapy (CBT), which helps you identify and change the thought patterns that fuel anxiety, as well as other therapeutic modalities tailored to your unique needs. Our therapists work with you to develop practical coping strategies, build resilience, and gradually reduce the hold that anxiety has on your daily life. Treatment is collaborative and moves at your pace.</p>
+
+                  <p>If anything in this article resonates with you, we encourage you to reach out. Whether you are unsure if what you are experiencing is anxiety or you already know you need support, our team is here to help. You do not have to navigate this alone. Call us at <a href="tel:6418562688">(641) 856-2688</a> or <a href="mailto:info@paulagordy.com">send us an email</a> to get started.</p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================
+         SECTION: Blog Post Grid
+         ============================ -->
+    <section class="section section--light" aria-labelledby="all-posts-heading">
+      <div class="container">
+        <div class="text-center mb-2xl">
+          <p class="section-subtitle">Explore Our Articles</p>
+          <h2 id="all-posts-heading">Recent Posts</h2>
+        </div>
+
+        <div class="grid grid--3">
+
+          <!-- Blog Post 2: 5 Coping Strategies You Can Use Today -->
+          <article class="blog-card">
+            <div class="img-container" aria-label="Coping strategies">
+              <img src="../images/outpatient-mental-health-service.jpg" alt="Supportive therapy session focused on coping strategies" loading="lazy">
+            </div>
+            <div class="blog-card__body">
+              <span class="blog-tag blog-tag--green">Self-Care</span>
+              <h3>5 Coping Strategies You Can Use Today</h3>
+              <div class="blog-meta">
+                <span class="blog-meta__date">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  January 22, 2026
+                </span>
+                <span class="blog-meta__author">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  Allison Brown, Therapist
+                </span>
+              </div>
+              <p class="blog-card__excerpt">When stress hits, having a few go-to coping strategies can make all the difference. These five practical techniques are ones you can start using right now, wherever you are.</p>
+
+              <details class="blog-article-expand">
+                <summary>Read Full Article</summary>
+                <div class="blog-article-body">
+                  <p>We all face moments when stress, worry, or difficult emotions feel like more than we can handle. The good news is that there are simple, practical strategies you can use right now to help bring yourself back to a calmer, more grounded place. You do not need any special tools or training to get started. Here are five coping strategies our therapists often recommend to clients.</p>
+
+                  <h4>1. Deep Breathing</h4>
+                  <p>When anxiety or stress ramps up, your breathing often becomes shallow and rapid, which can make things feel even worse. Deep breathing activates your body's relaxation response and can quickly bring down your stress level. Try this simple exercise: breathe in slowly through your nose for a count of four, hold for a count of four, then exhale slowly through your mouth for a count of six. Repeat this three to five times. You can do this anywhere, at your desk, in your car, or even in the middle of a stressful conversation.</p>
+
+                  <h4>2. Grounding Techniques</h4>
+                  <p>Grounding helps you come back to the present moment when anxiety pulls you into worst-case-scenario thinking. One of the most popular grounding exercises is the 5-4-3-2-1 technique: name five things you can see, four things you can touch, three things you can hear, two things you can smell, and one thing you can taste. This simple exercise redirects your attention from racing thoughts to the world around you.</p>
+
+                  <h4>3. Journaling</h4>
+                  <p>Putting your thoughts and feelings on paper can be incredibly powerful. Journaling helps you process what you are experiencing, identify patterns in your thinking, and create distance between yourself and overwhelming emotions. You do not need to write perfectly or for a long time. Even five minutes of free writing at the end of the day can help you release pent-up stress and gain clarity on what is bothering you.</p>
+
+                  <h4>4. Physical Movement</h4>
+                  <p>Movement is one of the most effective natural stress relievers available. Exercise releases endorphins, the body's natural mood boosters, and helps burn off the excess adrenaline and cortisol that build up during stressful times. This does not mean you have to go for a long run or hit the gym. A ten-minute walk around the block, some gentle stretching, or even dancing to your favorite song in the kitchen can shift your mood and energy.</p>
+
+                  <h4>5. Social Connection</h4>
+                  <p>When we are struggling, our instinct is often to withdraw and isolate ourselves. However, connection with others is one of our most fundamental needs and one of the strongest protectors of mental health. Reaching out to a trusted friend, family member, or even a support group can remind you that you are not alone. The conversation does not need to be about your problems. Sometimes simply spending time with someone who cares about you is enough to lighten the load.</p>
+
+                  <p>These strategies work best when practiced regularly, not just during a crisis. Think of them as part of your everyday wellness toolkit. If you find that stress or anxiety continues to feel unmanageable even with these techniques, that is a good sign that professional support could help. Our team at Paula S. Gordy LISW, LLC is here for you. Call <a href="tel:6418562688">(641) 856-2688</a> to schedule an appointment.</p>
+                </div>
+              </details>
+            </div>
+          </article>
+
+          <!-- Blog Post 3: What to Expect at Your First Therapy Appointment -->
+          <article class="blog-card">
+            <div class="img-container" aria-label="Your first therapy appointment">
+              <img src="../images/treatment.jpg" alt="Compassionate therapist welcoming a new client" loading="lazy">
+            </div>
+            <div class="blog-card__body">
+              <span class="blog-tag">Getting Started</span>
+              <h3>What to Expect at Your First Therapy Appointment</h3>
+              <div class="blog-meta">
+                <span class="blog-meta__date">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  January 10, 2026
+                </span>
+                <span class="blog-meta__author">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  Paula S. Gordy, LISW
+                </span>
+              </div>
+              <p class="blog-card__excerpt">Starting therapy can feel intimidating, but knowing what to expect can ease a lot of that uncertainty. Here is a friendly walkthrough of what your first session actually looks like.</p>
+
+              <details class="blog-article-expand">
+                <summary>Read Full Article</summary>
+                <div class="blog-article-body">
+                  <p>Making the decision to start therapy is a brave step, and it is completely normal to feel a mix of hope and nervousness about your first appointment. Many of our clients tell us that the anticipation was actually worse than the session itself. Our goal is to make you feel as comfortable and welcomed as possible from the moment you walk through our door.</p>
+
+                  <h4>Before You Arrive: Paperwork and Preparation</h4>
+                  <p>Before your first session, you will have the opportunity to complete intake paperwork either through our secure <a href="https://ehr.paulagordy.com/portal/login" target="_blank" rel="noopener noreferrer">client portal</a> or in person when you arrive. These forms ask about your personal background, current concerns, medical history, and what you hope to get out of therapy. Completing them in advance means you can use your full session time getting to know your therapist. We recommend arriving about 15 minutes early if you still need to finish paperwork at the office.</p>
+
+                  <h4>Meeting Your Therapist</h4>
+                  <p>Your therapist will greet you and bring you to a private, comfortable therapy room. The first session is largely about building a connection. Your therapist wants to get to know you as a person, not just your symptoms. Expect a warm, conversational tone. There is no couch you have to lie on, no pressure to share anything you are not ready to discuss, and no judgment about what you do share.</p>
+
+                  <h4>The Initial Assessment</h4>
+                  <p>During this first visit, your therapist will ask questions about what brought you to therapy, your current daily life, your relationships, your mental and physical health history, and what you would like to work on. This is called an assessment, and it helps your therapist understand the full picture so they can recommend the best approach for you. You are welcome to ask questions too. Therapy is a two-way conversation, and finding the right fit matters.</p>
+
+                  <h4>Setting Goals Together</h4>
+                  <p>Toward the end of your first session, you and your therapist will begin to identify goals for treatment. These goals are yours. They might be broad, like wanting to feel less anxious, or specific, like improving communication with a partner. Your therapist will work collaboratively with you to develop a treatment plan that reflects your unique needs, and this plan can always be adjusted as you progress.</p>
+
+                  <h4>What NOT to Worry About</h4>
+                  <p>You do not need to have your thoughts perfectly organized or know exactly what to say. You do not need to cry, share your entire life story, or have a breakthrough in the first session. There is no right or wrong way to do therapy. The first session is simply the beginning of a relationship built on trust, and that takes time. Our therapists meet you exactly where you are.</p>
+
+                  <p>If you have been thinking about starting therapy but feel unsure, we encourage you to take that first step. Our friendly team is happy to answer any questions before you schedule. Call us at <a href="tel:6418562688">(641) 856-2688</a> or visit our <a href="resources.html">Client Resources</a> page for more information about getting started.</p>
+                </div>
+              </details>
+            </div>
+          </article>
+
+          <!-- Blog Post 4: The Benefits of BHIS Services for Iowa Families -->
+          <article class="blog-card">
+            <div class="img-container" aria-label="BHIS services">
+              <img src="../images/Parents-GettyImages-1400106238-f8e2ffd3d5c1484db2498666f329e9ac.jpg" alt="Behavioral health provider working with a child through play therapy" loading="lazy">
+            </div>
+            <div class="blog-card__body">
+              <span class="blog-tag blog-tag--green">BHIS</span>
+              <h3>The Benefits of BHIS Services for Iowa Families</h3>
+              <div class="blog-meta">
+                <span class="blog-meta__date">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  December 15, 2025
+                </span>
+                <span class="blog-meta__author">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  Morgan Boney, BHIS Provider
+                </span>
+              </div>
+              <p class="blog-card__excerpt">Behavioral Health Intervention Services bring mental health support directly into the community. Learn what BHIS is, who qualifies, and how it can make a real difference for Iowa families.</p>
+
+              <details class="blog-article-expand">
+                <summary>Read Full Article</summary>
+                <div class="blog-article-body">
+                  <p>Not everyone can easily make it to a therapy office for regular appointments. Transportation challenges, school schedules, work conflicts, and the stigma that can come with walking into a mental health clinic can all stand in the way of getting help. That is where Behavioral Health Intervention Services, known as BHIS, come in. BHIS is a program available through Iowa Medicaid that takes mental health support out of the office and into the community, meeting people right where they are.</p>
+
+                  <h4>What Is BHIS?</h4>
+                  <p>BHIS stands for Behavioral Health Intervention Services. It is a community-based mental health program designed to help individuals, particularly children and adolescents, develop the skills they need to manage mental health symptoms and improve their daily functioning. Unlike traditional therapy, which takes place in an office setting, BHIS services are delivered in the environments where clients live their daily lives: at home, at school, in the community, or wherever they feel most comfortable. BHIS providers work one-on-one with clients to teach and practice coping skills, emotional regulation, social skills, and other strategies that make a real-world difference.</p>
+
+                  <h4>Who Qualifies for BHIS?</h4>
+                  <p>BHIS services are available to individuals who are enrolled in Iowa Medicaid and who have a qualifying mental health diagnosis. The program is most commonly used by children and adolescents, but it can be available for adults as well depending on individual circumstances. A referral and a mental health assessment are typically part of the process to determine eligibility. Our team can help you navigate the qualification process and determine if BHIS is a good fit for you or your family member.</p>
+
+                  <h4>How BHIS Works in the Community</h4>
+                  <p>A BHIS provider meets with the client regularly, often on a weekly basis, in a setting that works for the client and their family. Sessions are skill-focused and goal-oriented. For example, a BHIS provider might help a teenager practice calming techniques before a stressful school situation, work with a child on social skills during an after-school activity, or help an individual develop routines and strategies for managing anxiety at home. The beauty of BHIS is that it does not take place in an artificial setting. Skills are learned and practiced in the real-world environments where they will actually be used.</p>
+
+                  <h4>Real Benefits for Families</h4>
+                  <p>Families who participate in BHIS often report significant improvements in their child's behavior, emotional regulation, and overall well-being. Parents and caregivers also benefit because BHIS providers can offer guidance and strategies for the whole family, not just the identified client. The in-community model means less disruption to the family's schedule, no transportation barriers, and a more natural, less intimidating experience for the client. For many Iowa families, BHIS has been a turning point in their mental health journey.</p>
+
+                  <h4>Getting Started with BHIS</h4>
+                  <p>If you think BHIS might be right for your family, the first step is to contact our office. We can walk you through the eligibility requirements, help you understand what to expect, and connect you with one of our experienced BHIS providers. Paula S. Gordy LISW, LLC has a dedicated team of BHIS professionals serving families across southern Iowa. Call us at <a href="tel:6418562688">(641) 856-2688</a> or visit our <a href="services.html#bhis">BHIS Services page</a> to learn more.</p>
+                </div>
+              </details>
+            </div>
+          </article>
+
+          <!-- Blog Post 5: Recognizing Depression: More Than Just Feeling Sad -->
+          <article class="blog-card">
+            <div class="img-container" aria-label="Depression awareness">
+              <img src="../images/inpatient-vs-outpatient-mh-treatment.jpg" alt="Support group joining hands together in solidarity" loading="lazy">
+            </div>
+            <div class="blog-card__body">
+              <span class="blog-tag">Mental Health Education</span>
+              <h3>Recognizing Depression: More Than Just Feeling Sad</h3>
+              <div class="blog-meta">
+                <span class="blog-meta__date">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  November 28, 2025
+                </span>
+                <span class="blog-meta__author">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  Cassidy Stewart, Therapist
+                </span>
+              </div>
+              <p class="blog-card__excerpt">Depression is often misunderstood as simply feeling sad. In reality, it shows up in many ways that can be hard to recognize. Learn the signs that go beyond the obvious.</p>
+
+              <details class="blog-article-expand">
+                <summary>Read Full Article</summary>
+                <div class="blog-article-body">
+                  <p>When most people think of depression, they picture someone who is crying all the time or unable to get out of bed. While those can certainly be part of the experience, depression is far more complex than that. It can be subtle, sneaky, and show up in ways that you might not expect. Understanding the full picture of depression is important because it helps people recognize when they or someone they care about might need support.</p>
+
+                  <h4>Symptoms Beyond Sadness</h4>
+                  <p>Depression often manifests as persistent fatigue or a lack of energy that does not improve with rest. You might find that you are more irritable than usual, snapping at loved ones over small things or feeling frustrated by situations that would not normally bother you. Difficulty concentrating, making decisions, or remembering things can be another hallmark, sometimes mistaken for simple distraction or aging. Physical symptoms are also common with depression. Unexplained headaches, digestive problems, chronic pain, and changes in appetite or weight can all be tied to depression. Many people visit their doctor for these physical complaints without ever connecting them to their mental health.</p>
+
+                  <h4>Loss of Interest and Withdrawal</h4>
+                  <p>One of the most telling signs of depression is a loss of interest in things you once enjoyed. Hobbies, social activities, time with friends, exercise, or creative pursuits that used to bring pleasure may start to feel pointless or exhausting. This withdrawal can happen gradually, making it hard to notice until you look back and realize how much has changed. You might start declining invitations, spending more time alone, or going through the motions of daily life without feeling engaged or present.</p>
+
+                  <h4>The Difference Between Grief, Sadness, and Clinical Depression</h4>
+                  <p>It is important to understand that sadness is a normal, healthy emotion. Grief after a loss, disappointment after a setback, and emotional pain during difficult times are all part of the human experience. These feelings typically come in waves and tend to lessen over time. Clinical depression, on the other hand, is persistent. It lasts for weeks, months, or longer and does not improve on its own. Depression colors your entire experience. It can make everything feel heavy, hopeless, and pointless, even when things in your life are going relatively well. If sadness or low mood has been present most of the day, nearly every day, for two weeks or more, it may be time to talk to a professional.</p>
+
+                  <h4>Treatment Can Help</h4>
+                  <p>Depression is one of the most treatable mental health conditions. Therapy, particularly approaches like Cognitive Behavioral Therapy, can help you understand the thought patterns that contribute to depression, develop healthier ways of coping, and gradually reclaim a sense of meaning and engagement in your life. For some people, a combination of therapy and medication management through a prescribing provider offers the best results. Our practice can coordinate with your primary care provider to ensure a comprehensive approach to your care.</p>
+
+                  <p>If you recognize yourself or someone you love in this article, please do not wait. Depression tends to get worse without treatment, but with the right support, recovery is absolutely possible. Reach out to our team at <a href="tel:6418562688">(641) 856-2688</a>. You deserve to feel like yourself again.</p>
+                </div>
+              </details>
+            </div>
+          </article>
+
+          <!-- Blog Post 6: How Couples Counseling Can Strengthen Your Relationship -->
+          <article class="blog-card">
+            <div class="img-container" aria-label="Couples counseling">
+              <img src="../images/AdobeStock_161209185-1024x683.jpeg" alt="Family meeting with a counselor in a warm setting" loading="lazy">
+            </div>
+            <div class="blog-card__body">
+              <span class="blog-tag blog-tag--green">Relationships</span>
+              <h3>How Couples Counseling Can Strengthen Your Relationship</h3>
+              <div class="blog-meta">
+                <span class="blog-meta__date">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  November 10, 2025
+                </span>
+                <span class="blog-meta__author">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  Jacoby Campbell, Therapist
+                </span>
+              </div>
+              <p class="blog-card__excerpt">Couples counseling is not just for relationships in crisis. It can be a powerful tool for building stronger communication, deepening connection, and navigating life's challenges together.</p>
+
+              <details class="blog-article-expand">
+                <summary>Read Full Article</summary>
+                <div class="blog-article-body">
+                  <p>Many people think of couples counseling as a last resort, something you try when the relationship is already on the verge of ending. In reality, couples counseling can be valuable at any stage of a relationship. Think of it like a tune-up for your car. You do not wait until the engine breaks down to bring it in for maintenance. In the same way, working on your relationship proactively can prevent small issues from growing into major problems and can help you build an even stronger foundation together.</p>
+
+                  <h4>When Should Couples Consider Therapy?</h4>
+                  <p>There is no wrong time to start couples counseling, but there are some common signs that it might be especially helpful. You might consider it if you and your partner have the same arguments over and over without resolution, if communication has broken down or feels hostile, if trust has been damaged and you want to rebuild it, if you are going through a major life transition like a move, a new baby, or a career change, or if you simply feel disconnected and want to find your way back to each other. You do not have to be in crisis to benefit from couples therapy. Some of the most successful couples we work with come in specifically because they want to strengthen what they already have.</p>
+
+                  <h4>What Happens in Couples Counseling Sessions?</h4>
+                  <p>In your first session, your therapist will get to know both of you, your relationship history, your individual perspectives, and what you are hoping to achieve. From there, sessions typically involve guided conversations where both partners have the opportunity to be heard in a safe, structured environment. Your therapist acts as a neutral facilitator, helping you communicate more effectively, understand each other's perspectives, and develop tools for handling disagreements in healthier ways. You may work on specific issues like trust, intimacy, parenting differences, or financial stress, or you may focus on broader goals like improving overall communication and emotional connection.</p>
+
+                  <h4>Common Myths About Couples Counseling</h4>
+                  <p>One of the biggest myths is that couples counseling means your relationship is failing. In truth, seeking support is a sign that you care about the relationship and are willing to invest in it. Another common myth is that the therapist will take sides. A good couples therapist is trained to remain neutral and to advocate for the relationship, not for one partner over the other. Some people also worry that they will be forced to share things they are not ready to discuss. Your therapist will respect both partners' boundaries and will never pressure you to disclose more than you are comfortable with.</p>
+
+                  <h4>Building Stronger Communication Skills</h4>
+                  <p>At the heart of most relationship challenges is communication. Couples counseling helps you develop skills like active listening, expressing your needs without blame or criticism, managing conflict without escalation, and creating space for vulnerability and emotional intimacy. These are skills that benefit not just your romantic relationship but all of your relationships, with family, friends, coworkers, and beyond. Many couples tell us that what they learn in therapy transforms the way they interact with everyone in their lives.</p>
+
+                  <p>If you and your partner are interested in exploring couples counseling, we invite you to reach out. Our therapists provide a warm, nonjudgmental space where both partners can feel safe and heard. Call <a href="tel:6418562688">(641) 856-2688</a> to schedule an appointment, or learn more about our <a href="services.html#couples">couples counseling services</a>.</p>
+                </div>
+              </details>
+            </div>
+          </article>
+
+          <!-- Blog Post 7: Supporting Your Child's Mental Health -->
+          <article class="blog-card">
+            <div class="img-container" aria-label="Children's mental health">
+              <img src="../images/Medium-GettyImages-1916612882.jpg" alt="Group of happy, smiling children" loading="lazy">
+            </div>
+            <div class="blog-card__body">
+              <span class="blog-tag">Children &amp; Families</span>
+              <h3>Supporting Your Child's Mental Health: A Guide for Parents</h3>
+              <div class="blog-meta">
+                <span class="blog-meta__date">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  October 20, 2025
+                </span>
+                <span class="blog-meta__author">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  Carla Schippers, Therapist
+                </span>
+              </div>
+              <p class="blog-card__excerpt">As a parent, recognizing when your child is struggling can be challenging. This guide covers the signs to watch for, how to start the conversation, and when professional support can help.</p>
+
+              <details class="blog-article-expand">
+                <summary>Read Full Article</summary>
+                <div class="blog-article-body">
+                  <p>As a parent, there is nothing more important to you than your child's well-being. But when it comes to mental health, the signs that something is wrong are not always obvious. Children and adolescents often express emotional distress differently than adults, and what looks like misbehavior, defiance, or simply a phase may actually be a sign of an underlying mental health concern. Understanding what to look for and knowing how to respond can make a tremendous difference in your child's life.</p>
+
+                  <h4>Recognizing the Signs</h4>
+                  <p>Children may not have the language to tell you they are struggling, so they show you through their behavior. Common signs of mental health concerns in children and teens include changes in mood that last more than a couple of weeks, such as persistent sadness, irritability, or anger. Withdrawal from friends, family, or activities they used to enjoy is another important signal. Academic changes, like a sudden drop in grades or difficulty concentrating, can also indicate that something deeper is going on. Watch for changes in eating or sleeping patterns, frequent complaints of headaches or stomachaches without a medical cause, regressive behaviors in younger children (like bedwetting or clinginess), and in older children, increased risk-taking, substance use, or talk of hopelessness or self-harm.</p>
+
+                  <h4>Having Age-Appropriate Conversations</h4>
+                  <p>Talking to your child about mental health does not have to be complicated or scary. For younger children, start simple. You might say something like, "Everyone has big feelings sometimes. It is okay to feel sad or scared, and you can always tell me about it." For older children and teenagers, be direct but gentle. Let them know you have noticed some changes and that you are asking because you care, not because they are in trouble. Avoid minimizing their feelings with phrases like "just cheer up" or "everyone goes through this." Instead, validate what they are feeling by saying something like, "That sounds really hard. I am glad you told me." The most important thing is to listen without judgment and to let your child know that asking for help is a sign of strength.</p>
+
+                  <h4>When to Seek Professional Help</h4>
+                  <p>It is time to consider professional support if your child's symptoms are persistent, lasting more than two weeks, if they are impacting daily life at home, school, or with friends, if your child expresses thoughts of self-harm or hopelessness, if you have tried to help at home but things are not improving, or if your instincts as a parent tell you something is not right. Trust yourself. You know your child better than anyone, and if something feels off, it is worth exploring with a professional.</p>
+
+                  <h4>How Therapy Works for Children</h4>
+                  <p>Therapy for children looks different from therapy for adults. Depending on the child's age, a therapist may use play, art, storytelling, or other creative approaches to help the child express and process their feelings. For older children and teens, talk therapy is often used, but in a way that feels approachable and relevant to their world. Parents and caregivers are often involved in the process, whether through family sessions, regular updates, or learning strategies to support their child at home. Our therapists are experienced in working with young people and are skilled at building trust and rapport with children of all ages.</p>
+
+                  <h4>The Role Parents Play</h4>
+                  <p>Your role as a parent is invaluable. Beyond seeking professional help, you can support your child's mental health by creating a home environment where emotions are openly discussed, by maintaining consistent routines, by modeling healthy coping strategies yourself, and by staying connected and involved in their life. Remember that taking care of your own mental health is also part of being a good parent. You cannot pour from an empty cup.</p>
+
+                  <p>If you are concerned about your child's mental health, please do not hesitate to reach out. Our team has experience working with children, adolescents, and families, and we also offer <a href="services.html#bhis">BHIS services</a> that bring support directly into your home or community. Call <a href="tel:6418562688">(641) 856-2688</a> to learn more or schedule an appointment.</p>
+                </div>
+              </details>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         SECTION: Blog Categories
+         ============================ -->
+    <section class="section" aria-labelledby="categories-heading">
+      <div class="container">
+        <div class="text-center mb-xl">
+          <p class="section-subtitle">Browse by Topic</p>
+          <h2 id="categories-heading">Blog Categories</h2>
+        </div>
+        <div class="blog-categories">
+          <a href="blog.html" class="active">All Posts</a>
+          <a href="blog.html">Mental Health Education</a>
+          <a href="blog.html">Self-Care</a>
+          <a href="blog.html">Getting Started</a>
+          <a href="blog.html">Relationships</a>
+          <a href="blog.html">Children &amp; Families</a>
+          <a href="blog.html">BHIS</a>
+          <a href="blog.html">Coping Skills</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         SECTION: Stay Connected CTA
+         ============================ -->
+    <section class="section section--primary" aria-labelledby="newsletter-heading">
+      <div class="container text-center">
+        <h2 id="newsletter-heading">Stay Connected</h2>
+        <p class="lead-text" style="max-width: 700px; margin-left: auto; margin-right: auto;">We regularly share mental health tips, practice updates, and helpful resources through our blog. Follow along for information that supports your well-being and helps you get the most out of your mental health journey.</p>
+        <p style="margin-top: 1rem; opacity: 0.9;">For the latest updates, follow our blog or contact our office.</p>
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 2rem;">
+          <a href="tel:6418562688" class="btn btn--white btn--large">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            Call (641) 856-2688
+          </a>
+          <a href="mailto:info@paulagordy.com" class="btn btn--outline-white btn--large">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Email Us
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         SECTION: Disclaimer Notice
+         ============================ -->
+    <section class="section">
+      <div class="container">
+        <div class="notice notice--info">
+          <span class="notice__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          </span>
+          <div>
+            <p><strong>Disclaimer:</strong> The information provided in these blog posts is for educational purposes only and is not intended as a substitute for professional mental health advice, diagnosis, or treatment. Always seek the advice of a qualified provider with any questions you may have regarding a mental health condition.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <!-- About Column -->
+        <div class="footer__about">
+          <h3 class="footer__heading">Paula S. Gordy LISW, LLC</h3>
+          <p>Providing compassionate, professional outpatient mental health services to individuals, couples, and families across southern Iowa. Licensed Independent Social Worker serving Centerville, Ottumwa, Bloomfield, and surrounding communities.</p>
+          <div class="footer__hipaa">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>HIPAA Compliant Practice</span>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="footer__heading">Quick Links</h3>
+          <ul class="footer__links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Locations</a></li>
+            <li><a href="insurance.html">Insurance &amp; Billing</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div>
+          <h3 class="footer__heading">Services</h3>
+          <ul class="footer__links">
+            <li><a href="services.html#individual">Individual Counseling</a></li>
+            <li><a href="services.html#couples">Couples Counseling</a></li>
+            <li><a href="services.html#group">Group Therapy</a></li>
+            <li><a href="services.html#bhis">BHIS Services</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <h3 class="footer__heading">Contact</h3>
+          <div class="footer__contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <div>
+              <a href="tel:6418562688">(641) 856-2688</a><br>
+              <small>Fax: (641) 856-2690</small>
+            </div>
+          </div>
+          <div class="footer__contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:info@paulagordy.com">info@paulagordy.com</a>
+          </div>
+          <div class="footer__contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>Centerville, Ottumwa &amp;<br>Bloomfield, Iowa</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer__bottom">
+        <p>&copy; 2025 Paula S. Gordy LISW, LLC. All rights reserved.</p>
+        <div class="footer__legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Use</a>
+          <a href="accessibility.html">Accessibility</a>
+          <a href="../sitemap.xml">Sitemap</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="../js/main.js"></script>
+</body>
+</html>

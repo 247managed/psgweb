@@ -1,0 +1,12 @@
+# robots.txt for Paula S. Gordy LISW, LLC
+# https://www.paulagordy.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.paulagordy.com/sitemap.xml
+
+# Disallow any server-side admin areas (if applicable)
+Disallow: /admin/
+Disallow: /wp-admin/

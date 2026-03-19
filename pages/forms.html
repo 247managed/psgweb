@@ -1,0 +1,2101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Complete your intake forms, consent documents, and other paperwork online before your visit to Paula S. Gordy LISW, LLC. Print or email forms directly from your browser.">
+  <meta name="keywords" content="intake forms, consent forms, new client paperwork, mental health forms, therapy forms, Paula Gordy, Centerville Iowa, Ottumwa, Bloomfield">
+  <meta name="author" content="Paula S. Gordy LISW, LLC">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Forms &amp; Documents | Paula S. Gordy LISW, LLC">
+  <meta property="og:description" content="Complete your intake forms and paperwork online before your visit. Print or email completed forms to our office.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+
+  <title>Forms &amp; Documents | Paula S. Gordy LISW, LLC</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Merriweather:wght@400;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../css/styles.css">
+
+  <!-- Forms Page Styles & Print Styles -->
+  <style>
+    /* ========================================
+       FORMS PAGE - ADDITIONAL STYLES
+       ======================================== */
+
+    .form-section {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      margin-bottom: 3rem;
+      overflow: hidden;
+    }
+
+    .form-section__header {
+      background: linear-gradient(135deg, #2c5f7c, #1a3a4a);
+      color: #fff;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .form-section__title {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .form-section__title h2 {
+      color: #fff;
+      margin: 0;
+      font-size: 1.35rem;
+      font-family: 'Merriweather', serif;
+    }
+
+    .form-section__title svg {
+      flex-shrink: 0;
+    }
+
+    .form-section__actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .form-section__actions .btn {
+      font-size: 0.85rem;
+      padding: 0.5rem 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      white-space: nowrap;
+    }
+
+    .btn--print {
+      background: #fff;
+      color: #2c5f7c;
+      border: 1px solid #fff;
+    }
+
+    .btn--print:hover {
+      background: #e8f0f5;
+    }
+
+    .btn--email {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.6);
+    }
+
+    .btn--email:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: #fff;
+    }
+
+    .form-section__body {
+      padding: 2rem;
+    }
+
+    .form-section__body h3 {
+      font-family: 'Merriweather', serif;
+      color: #2c5f7c;
+      border-bottom: 2px solid #e8f0f5;
+      padding-bottom: 0.5rem;
+      margin-top: 2rem;
+      margin-bottom: 1.25rem;
+      font-size: 1.15rem;
+    }
+
+    .form-section__body h3:first-child {
+      margin-top: 0;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-row--3 {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .form-row--4 {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    @media (max-width: 768px) {
+      .form-row,
+      .form-row--3,
+      .form-row--4 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group--full {
+      grid-column: 1 / -1;
+    }
+
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 0.5rem;
+    }
+
+    .checkbox-grid .form-checkbox {
+      margin-bottom: 0.25rem;
+    }
+
+    .consent-text {
+      background: #f8f9fa;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      padding: 1.5rem 2rem;
+      margin-bottom: 1.5rem;
+      max-height: 400px;
+      overflow-y: auto;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .consent-text h4 {
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: #1a3a4a;
+    }
+
+    .consent-text h4:first-child {
+      margin-top: 0;
+    }
+
+    .consent-text p {
+      margin-bottom: 0.75rem;
+    }
+
+    .consent-text ol,
+    .consent-text ul {
+      margin-bottom: 0.75rem;
+      padding-left: 1.5rem;
+    }
+
+    .consent-text li {
+      margin-bottom: 0.35rem;
+    }
+
+    .signature-section {
+      background: #f8f9fa;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .signature-section h4 {
+      color: #2c5f7c;
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .form-section__footer {
+      border-top: 1px solid #e0e0e0;
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      background: #f8f9fa;
+    }
+
+    .form-nav {
+      background: #f8f9fa;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 1.5rem 2rem;
+    }
+
+    .form-nav h2 {
+      font-size: 1.15rem;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: #2c5f7c;
+    }
+
+    .form-nav ol {
+      margin: 0;
+      padding-left: 1.25rem;
+    }
+
+    .form-nav ol li {
+      margin-bottom: 0.5rem;
+    }
+
+    .form-nav ol li a {
+      color: #2c5f7c;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .form-nav ol li a:hover {
+      text-decoration: underline;
+    }
+
+    .options-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .options-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .option-card {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .option-card svg {
+      color: #2c5f7c;
+      margin-bottom: 0.75rem;
+    }
+
+    .option-card h3 {
+      font-size: 1rem;
+      color: #1a3a4a;
+      margin-bottom: 0.5rem;
+    }
+
+    .option-card p {
+      font-size: 0.9rem;
+      color: #555;
+      margin: 0;
+    }
+
+    .field-highlight {
+      border-color: #e74c3c !important;
+      box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2) !important;
+    }
+
+    .field-highlight-msg {
+      color: #e74c3c;
+      font-size: 0.8rem;
+      margin-top: 0.25rem;
+      display: none;
+    }
+
+    .field-highlight-msg.visible {
+      display: block;
+    }
+
+    .secondary-insurance-fields {
+      display: none;
+      margin-top: 1rem;
+      padding: 1rem;
+      background: #f0f7fb;
+      border-radius: 6px;
+    }
+
+    .secondary-insurance-fields.visible {
+      display: block;
+    }
+
+    .safety-notice {
+      background: #fef3f2;
+      border: 2px solid #e74c3c;
+      border-radius: 6px;
+      padding: 1.25rem;
+      margin-top: 1rem;
+    }
+
+    .safety-notice p {
+      color: #c0392b;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .print-header {
+      display: none;
+    }
+
+    /* ========================================
+       PRINT STYLES
+       ======================================== */
+
+    @media print {
+      /* Hide everything except the form being printed */
+      body * {
+        visibility: hidden;
+      }
+
+      .form-section.printing,
+      .form-section.printing * {
+        visibility: visible;
+      }
+
+      .form-section.printing {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        border: none;
+        margin: 0;
+        box-shadow: none;
+      }
+
+      /* Show print header */
+      .form-section.printing .print-header {
+        display: block;
+        text-align: center;
+        padding: 0.5rem 0 1rem 0;
+        border-bottom: 2px solid #333;
+        margin-bottom: 1rem;
+      }
+
+      .print-header__practice {
+        font-size: 16pt;
+        font-weight: 700;
+        font-family: 'Merriweather', serif;
+        margin: 0;
+      }
+
+      .print-header__subtitle {
+        font-size: 9pt;
+        color: #555;
+        margin: 0.15rem 0 0 0;
+      }
+
+      .print-header__confidential {
+        font-size: 8pt;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #c0392b;
+        margin: 0.5rem 0 0 0;
+        font-weight: 700;
+      }
+
+      .print-header__formtitle {
+        font-size: 13pt;
+        font-weight: 700;
+        margin: 0.5rem 0 0 0;
+      }
+
+      .print-header__contact {
+        font-size: 8pt;
+        color: #666;
+        margin: 0.25rem 0 0 0;
+      }
+
+      /* Hide interactive elements */
+      .form-section__header,
+      .form-section__footer,
+      .form-section__actions,
+      .btn--print,
+      .btn--email,
+      .crisis-banner,
+      .top-bar,
+      .site-header,
+      .site-footer,
+      .page-hero,
+      .skip-nav,
+      #form-instructions,
+      #form-nav-section,
+      .notice--warning {
+        display: none !important;
+      }
+
+      /* Format form body for print */
+      .form-section.printing .form-section__body {
+        padding: 0.5rem 0;
+      }
+
+      .form-section.printing h3 {
+        font-size: 11pt;
+        margin-top: 1rem;
+        page-break-after: avoid;
+      }
+
+      .form-section.printing .form-group {
+        margin-bottom: 0.5rem;
+      }
+
+      .form-section.printing .form-label {
+        font-size: 9pt;
+        font-weight: 600;
+      }
+
+      .form-section.printing .form-input,
+      .form-section.printing .form-textarea,
+      .form-section.printing .form-select {
+        border: 1px solid #999;
+        font-size: 10pt;
+        padding: 0.3rem;
+        min-height: auto;
+        background: #fff !important;
+      }
+
+      .form-section.printing .form-textarea {
+        min-height: 60px;
+      }
+
+      .form-section.printing .consent-text {
+        max-height: none;
+        overflow: visible;
+        font-size: 9pt;
+        border: none;
+        padding: 0;
+        background: none;
+      }
+
+      .form-section.printing .signature-section {
+        page-break-inside: avoid;
+      }
+
+      .form-section.printing .form-row {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .form-section.printing .form-row--3 {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      .form-section.printing .checkbox-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .secondary-insurance-fields {
+        background: none !important;
+      }
+
+      @page {
+        margin: 0.75in;
+        size: letter;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Skip Navigation -->
+  <a href="#main-content" class="skip-nav">Skip to main content</a>
+
+  <!-- Crisis Banner -->
+  <div class="crisis-banner" role="alert">
+    <div class="container">
+      <p><strong>In Crisis?</strong> Call or text <a href="tel:988">988</a> (Suicide &amp; Crisis Lifeline) or text <strong>HOME</strong> to <a href="sms:741741">741741</a> (Crisis Text Line)</p>
+    </div>
+  </div>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar__contact">
+        <span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <a href="tel:6418562688">(641) 856-2688</a>
+        </span>
+        <span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:info@paulagordy.com">info@paulagordy.com</a>
+        </span>
+        <span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 3H3v18h18V3z"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          Fax: (641) 856-2690
+        </span>
+      </div>
+      <div class="top-bar__portal">
+        <a href="https://ehr.paulagordy.com/portal/login" target="_blank" rel="noopener noreferrer">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          Client Portal
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="site-header">
+    <nav class="nav-main" aria-label="Main navigation">
+      <div class="container">
+        <div class="nav-logo">
+          <a href="../index.html">
+            <div class="nav-logo__icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </div>
+            <div class="nav-logo__text">
+              <span class="nav-logo__name">Paula S. Gordy LISW, LLC</span>
+              <span class="nav-logo__tagline">Outpatient Mental Health Services</span>
+            </div>
+          </a>
+        </div>
+
+        <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <ul class="nav-menu" id="nav-menu" role="menubar">
+          <li role="none"><a href="../index.html" role="menuitem">Home</a></li>
+          <li role="none"><a href="about.html" role="menuitem">About Us</a></li>
+          <li class="nav-dropdown" role="none">
+            <a href="services.html" class="nav-dropdown__trigger" role="menuitem" aria-haspopup="true" aria-expanded="false">Services</a>
+            <ul class="nav-dropdown__menu" role="menu" aria-label="Services submenu">
+              <li role="none"><a href="services.html" role="menuitem">All Services</a></li>
+              <li role="none"><a href="services.html#individual" role="menuitem">Individual Counseling</a></li>
+              <li role="none"><a href="services.html#couples" role="menuitem">Couples Counseling</a></li>
+              <li role="none"><a href="services.html#group" role="menuitem">Group Therapy</a></li>
+              <li role="none"><a href="services.html#bhis" role="menuitem">BHIS Services</a></li>
+            </ul>
+          </li>
+          <li role="none"><a href="contact.html" role="menuitem">Locations</a></li>
+          <li role="none"><a href="insurance.html" role="menuitem">Insurance &amp; Billing</a></li>
+          <li class="nav-dropdown" role="none">
+            <a href="resources.html" class="nav-dropdown__trigger" role="menuitem" aria-haspopup="true" aria-expanded="false">Client Resources</a>
+            <ul class="nav-dropdown__menu" role="menu" aria-label="Client Resources submenu">
+              <li role="none"><a href="resources.html" role="menuitem">New Patients</a></li>
+              <li role="none"><a href="forms.html" role="menuitem">Forms &amp; Documents</a></li>
+              <li role="none"><a href="resources.html#education" role="menuitem">Client Education</a></li>
+              <li role="none"><a href="resources.html#faq" role="menuitem">FAQ</a></li>
+              <li role="none"><a href="blog.html" role="menuitem">Blog</a></li>
+            </ul>
+          </li>
+          <li role="none"><a href="contact.html" role="menuitem">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Hero -->
+  <section class="page-hero" aria-label="Page heading">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb navigation">
+        <a href="../index.html">Home</a>
+        <span aria-hidden="true">/</span>
+        <a href="resources.html">Client Resources</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">Forms &amp; Documents</span>
+      </nav>
+      <h1>Forms &amp; Documents</h1>
+      <p>Complete your paperwork online before your visit</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- ============================
+         SECTION: Instructions
+         ============================ -->
+    <section id="form-instructions" class="section" aria-labelledby="instructions-heading">
+      <div class="container">
+        <div class="text-center mb-xl">
+          <h2 id="instructions-heading" class="sr-only">How to Use These Forms</h2>
+          <p class="lead-text" style="max-width: 800px; margin-left: auto; margin-right: auto;">Complete any of the forms below directly in your browser. When finished, you can print the form to bring to your appointment or email it to our office.</p>
+        </div>
+
+        <div class="notice notice--warning mb-xl">
+          <div>
+            <p><strong>Important HIPAA Notice:</strong> These forms are submitted via standard email, which is not a HIPAA-secure method of transmission. By choosing to email a completed form, you acknowledge and accept this risk. For the most secure option, please use our <a href="https://ehr.paulagordy.com/portal/login" target="_blank" rel="noopener noreferrer">client portal</a> or bring printed forms to your appointment.</p>
+          </div>
+        </div>
+
+        <div class="options-cards">
+          <div class="option-card">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            <h3>Fill Out Online</h3>
+            <p>Complete forms right in your browser with easy-to-use fields.</p>
+          </div>
+          <div class="option-card">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            <h3>Print</h3>
+            <p>Print completed forms to bring to your appointment.</p>
+          </div>
+          <div class="option-card">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <h3>Email to Office</h3>
+            <p>Send completed forms to info@paulagordy.com.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         SECTION: Form Navigation
+         ============================ -->
+    <section id="form-nav-section" class="section section--light" aria-labelledby="form-nav-heading">
+      <div class="container container--narrow">
+        <div class="form-nav">
+          <h2 id="form-nav-heading">Forms on This Page</h2>
+          <ol>
+            <li><a href="#intake-form">New Client Intake Form</a> &mdash; Personal information, insurance, history, and current concerns</li>
+            <li><a href="#consent-form">Consent for Treatment</a> &mdash; Informed consent to receive mental health services</li>
+            <li><a href="#financial-form">Financial Agreement</a> &mdash; Payment policies and financial responsibility</li>
+            <li><a href="#release-form">Release of Information</a> &mdash; Authorization to share or obtain records</li>
+            <li><a href="#telehealth-form">Telehealth Consent</a> &mdash; Consent for telehealth/video session services</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         FORM 1: New Client Intake Form
+         ============================ -->
+    <section class="section" aria-labelledby="intake-form-heading">
+      <div class="container">
+        <div class="form-section" id="intake-form">
+
+          <div class="print-header">
+            <p class="print-header__practice">Paula S. Gordy LISW, LLC</p>
+            <p class="print-header__subtitle">Outpatient Mental Health Services</p>
+            <p class="print-header__contact">(641) 856-2688 | Fax: (641) 856-2690 | info@paulagordy.com</p>
+            <p class="print-header__confidential">Confidential</p>
+            <p class="print-header__formtitle">New Client Intake Form</p>
+          </div>
+
+          <div class="form-section__header">
+            <div class="form-section__title">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              <h2 id="intake-form-heading">New Client Intake Form</h2>
+            </div>
+            <div class="form-section__actions">
+              <button type="button" class="btn btn--print" onclick="printForm('intake-form')" aria-label="Print New Client Intake Form">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                Print This Form
+              </button>
+              <button type="button" class="btn btn--email" onclick="emailForm('intake-form', 'New Client Intake Form')" aria-label="Email New Client Intake Form to office">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Email to Office
+              </button>
+            </div>
+          </div>
+
+          <div class="form-section__body">
+
+            <!-- Section A: Personal Information -->
+            <h3>Section A: Personal Information</h3>
+
+            <div class="form-row form-row--3">
+              <div class="form-group">
+                <label class="form-label" for="intake-first-name">First Name <span class="required">*</span></label>
+                <input type="text" id="intake-first-name" name="first_name" class="form-input" required aria-required="true">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="intake-middle-name">Middle Name</label>
+                <input type="text" id="intake-middle-name" name="middle_name" class="form-input">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="intake-last-name">Last Name <span class="required">*</span></label>
+                <input type="text" id="intake-last-name" name="last_name" class="form-input" required aria-required="true">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="intake-preferred-name">Preferred Name / Nickname</label>
+                <input type="text" id="intake-preferred-name" name="preferred_name" class="form-input">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="intake-pronouns">Preferred Pronouns</label>
+                <input type="text" id="intake-pronouns" name="pronouns" class="form-input" placeholder="e.g., she/her, he/him, they/them">
+              </div>
+            </div>
+
+            <div class="form-row form-row--4">
+              <div class="form-group">
+                <label class="form-label" for="intake-dob">Date of Birth <span class="required">*</span></label>
+                <input type="date" id="intake-dob" name="dob" class="form-input" required aria-required="true">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="intake-age">Age</label>
+                <input type="number" id="intake-age" name="age" class="form-input" min="0" max="120">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="intake-gender">Gender</label>
+                <select id="intake-gender" name="gender" class="form-select">
+                  <option value="">Select...</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Non-binary">Non-binary</option>
+                  <option value="Prefer not to say">Prefer not to say</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="intake-gender-other">If Other, specify</label>
+                <input type="text" id="intake-gender-other" name="gender_other" class="form-input">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="intake-ssn">Social Security Number</label>
+                <input type="text" id="intake-ssn" name="ssn" class="form-input" placeholder="XXX-XX-XXXX">
+                <p class="form-hint">Required for insurance billing purposes only.</p>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="intake-marital">Marital Status</label>
+                <select id="intake-marital" name="marital_status" class="form-select">
+                  <option value="">Select...</option>
+                  <option value="Single">Single</option>
+                  <option value="Married">Married</option>
+                  <option value="Divorced">Divorced</option>
+                  <option value="Separated">Separated</option>
+                  <option value="Widowed">Widowed</option>
+                  <option value="Domestic Partnership">Domestic Partnership</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="intake-address">Street Address <span class="required">*</span></label>
+              <input type="text" id="intake-address" name="address" class="form-input" required aria-required="true">
+            </div>
+
+            <div class="form-row form-row--3">
+              <div class="form-group">
+                <label class="form-label" for="intake-city">City <span class="required">*</span></label>
+                <input type="text" id="intake-city" name="city" class="form-input" required aria-required="true">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="intake-state">State <span class="required">*</span></label>
+                <input type="text" id="intake-state" name="state" class="form-input" value="Iowa" required aria-required="true">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="intake-zip">Zip Code <span class="required">*</span></label>
+                <input type="text" id="intake-zip" name="zip" class="form-input" required aria-required="true">
+              </div>
+            </div>
+
+            <div class="form-row form-row--3">
+              <div class="form-group">
+                <label class="form-label" for="intake-home-phone">Home Phone</label>
+                <input type="tel" id="intake-home-phone" name="home_phone" class="form-input">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="intake-cell-phone">Cell Phone <span class="required">*</span></label>
+                <input type="tel" id="intake-cell-phone" name="cell_phone" class="form-input" required aria-required="true">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="intake-email">Email Address</label>
+                <input type="email" id="intake-email" name="email" class="form-input">
+              </div>
+            </div>
+
+            <div class="form-row form-row--3">
+              <div class="form-group">
+                <label class="form-label" for="intake-contact-method">Preferred Contact Method</label>
+                <select id="intake-contact-method" name="contact_method" class="form-select">
+                  <option value="">Select...</option>
+                  <option value="Phone">Phone</option>
+                  <option value="Text">Text</option>
+                  <option value="Email">Email</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="intake-voicemail">OK to leave voicemail?</label>
+                <select id="intake-voicemail" name="voicemail" class="form-select">
+                  <option value="">Select...</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="intake-location">Preferred Office Location <span class="required">*</span></label>
+                <select id="intake-location" name="location" class="form-select" required aria-required="true">
+                  <option value="">Select...</option>
+                  <option value="Centerville">Centerville</option>
+                  <option value="Ottumwa">Ottumwa</option>
+                  <option value="Bloomfield">Bloomfield</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Section B: Emergency Contact -->
+            <h3>Section B: Emergency Contact</h3>
+
+            <div class="form-row form-row--3">
+              <div class="form-group">
+                <label class="form-label" for="intake-ec-name">Emergency Contact Name <span class="required">*</span></label>
+                <input type="text" id="intake-ec-name" name="ec_name" class="form-input" required aria-required="true">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="intake-ec-relationship">Relationship <span class="required">*</span></label>
+                <input type="text" id="intake-ec-relationship" name="ec_relationship" class="form-input" required aria-required="true">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="intake-ec-phone">Phone Number <span class="required">*</span></label>
+                <input type="tel" id="intake-ec-phone" name="ec_phone" class="form-input" required aria-required="true">
+              </div>
+            </div>
+
+            <!-- Section C: Insurance Information -->
+            <h3>Section C: Insurance Information</h3>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="intake-insurance-company">Insurance Company</label>
+                <input type="text" id="intake-insurance-company" name="insurance_company" class="form-input">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="intake-member-id">Member / Subscriber ID</label>
+                <input type="text" id="intake-member-id" name="member_id" class="form-input">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="intake-group-number">Group Number</label>
+                <input type="text" id="intake-group-number" name="group_number" class="form-input">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="intake-policy-holder">Policy Holder Name (if different from client)</label>
+                <input type="text" id="intake-policy-holder" name="policy_holder" class="form-input">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="intake-policy-dob">Policy Holder Date of Birth</label>
+                <input type="date" id="intake-policy-dob" name="policy_holder_dob" class="form-input">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="intake-policy-relationship">Relationship to Policy Holder</label>
+                <select id="intake-policy-relationship" name="policy_relationship" class="form-select">
+                  <option value="">Select...</option>
+                  <option value="Self">Self</option>
+                  <option value="Spouse">Spouse</option>
+                  <option value="Parent">Parent</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-checkbox">
+                <input type="checkbox" id="intake-secondary-insurance" name="has_secondary_insurance" onchange="toggleSecondaryInsurance(this)">
+                <span>I have secondary insurance</span>
+              </label>
+            </div>
+
+            <div class="secondary-insurance-fields" id="secondary-insurance-fields">
+              <h4 style="margin-top:0; color:#2c5f7c;">Secondary Insurance Information</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="intake-secondary-company">Insurance Company</label>
+                  <input type="text" id="intake-secondary-company" name="secondary_company" class="form-input">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="intake-secondary-member-id">Member / Subscriber ID</label>
+                  <input type="text" id="intake-secondary-member-id" name="secondary_member_id" class="form-input">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="intake-secondary-group">Group Number</label>
+                  <input type="text" id="intake-secondary-group" name="secondary_group" class="form-input">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="intake-secondary-holder">Policy Holder Name (if different)</label>
+                  <input type="text" id="intake-secondary-holder" name="secondary_holder" class="form-input">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="intake-secondary-holder-dob">Policy Holder Date of Birth</label>
+                  <input type="date" id="intake-secondary-holder-dob" name="secondary_holder_dob" class="form-input">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="intake-secondary-relationship">Relationship to Policy Holder</label>
+                  <select id="intake-secondary-relationship" name="secondary_relationship" class="form-select">
+                    <option value="">Select...</option>
+                    <option value="Self">Self</option>
+                    <option value="Spouse">Spouse</option>
+                    <option value="Parent">Parent</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section D: Referral Information -->
+            <h3>Section D: Referral Information</h3>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="intake-referral-source">How did you hear about us?</label>
+                <select id="intake-referral-source" name="referral_source" class="form-select">
+                  <option value="">Select...</option>
+                  <option value="Doctor/Provider Referral">Doctor / Provider Referral</option>
+                  <option value="Insurance">Insurance</option>
+                  <option value="Internet Search">Internet Search</option>
+                  <option value="Friend/Family">Friend / Family</option>
+                  <option value="Community">Community</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="intake-referring-provider">Referring Provider Name (if applicable)</label>
+                <input type="text" id="intake-referring-provider" name="referring_provider" class="form-input">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="intake-pcp">Primary Care Physician Name</label>
+                <input type="text" id="intake-pcp" name="pcp_name" class="form-input">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="intake-pcp-phone">PCP Phone Number</label>
+                <input type="tel" id="intake-pcp-phone" name="pcp_phone" class="form-input">
+              </div>
+            </div>
+
+            <!-- Section E: Reason for Seeking Services -->
+            <h3>Section E: Reason for Seeking Services</h3>
+
+            <div class="form-group">
+              <label class="form-label" for="intake-reason">What brings you to counseling today? <span class="required">*</span></label>
+              <textarea id="intake-reason" name="reason" class="form-textarea" rows="4" required aria-required="true"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="intake-goals">What are your goals for therapy?</label>
+              <textarea id="intake-goals" name="goals" class="form-textarea" rows="3"></textarea>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="intake-prior-mh">Have you received mental health services before?</label>
+                <select id="intake-prior-mh" name="prior_mh" class="form-select">
+                  <option value="">Select...</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="intake-prior-mh-details">If yes, when and where?</label>
+                <textarea id="intake-prior-mh-details" name="prior_mh_details" class="form-textarea" rows="2"></textarea>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="intake-medications">Are you currently taking any medications?</label>
+                <select id="intake-medications" name="taking_medications" class="form-select">
+                  <option value="">Select...</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="intake-medications-list">If yes, list medications, dosages, and prescribing doctor</label>
+                <textarea id="intake-medications-list" name="medications_list" class="form-textarea" rows="2"></textarea>
+              </div>
+            </div>
+
+            <!-- Section F: Current Concerns -->
+            <h3>Section F: Current Concerns (check all that apply)</h3>
+
+            <div class="checkbox-grid">
+              <label class="form-checkbox"><input type="checkbox" name="concerns" value="Anxiety"><span>Anxiety</span></label>
+              <label class="form-checkbox"><input type="checkbox" name="concerns" value="Depression"><span>Depression</span></label>
+              <label class="form-checkbox"><input type="checkbox" name="concerns" value="Anger"><span>Anger</span></label>
+              <label class="form-checkbox"><input type="checkbox" name="concerns" value="Grief/Loss"><span>Grief / Loss</span></label>
+              <label class="form-checkbox"><input type="checkbox" name="concerns" value="Stress"><span>Stress</span></label>
+              <label class="form-checkbox"><input type="checkbox" name="concerns" value="Trauma/PTSD"><span>Trauma / PTSD</span></label>
+              <label class="form-checkbox"><input type="checkbox" name="concerns" value="Relationship Issues"><span>Relationship Issues</span></label>
+              <label class="form-checkbox"><input type="checkbox" name="concerns" value="Family Conflict"><span>Family Conflict</span></label>
+              <label class="form-checkbox"><input type="checkbox" name="concerns" value="Self-Esteem"><span>Self-Esteem</span></label>
+              <label class="form-checkbox"><input type="checkbox" name="concerns" value="Sleep Problems"><span>Sleep Problems</span></label>
+              <label class="form-checkbox"><input type="checkbox" name="concerns" value="Substance Use"><span>Substance Use</span></label>
+              <label class="form-checkbox"><input type="checkbox" name="concerns" value="Eating Concerns"><span>Eating Concerns</span></label>
+              <label class="form-checkbox"><input type="checkbox" name="concerns" value="Work/School Issues"><span>Work / School Issues</span></label>
+              <label class="form-checkbox"><input type="checkbox" name="concerns" value="Life Transitions"><span>Life Transitions</span></label>
+              <label class="form-checkbox"><input type="checkbox" name="concerns" value="Parenting"><span>Parenting</span></label>
+              <label class="form-checkbox"><input type="checkbox" name="concerns" value="Domestic Violence"><span>Domestic Violence</span></label>
+              <label class="form-checkbox"><input type="checkbox" name="concerns" value="Sexual Abuse"><span>Sexual Abuse</span></label>
+              <label class="form-checkbox"><input type="checkbox" name="concerns" value="Suicidal Thoughts"><span>Suicidal Thoughts</span></label>
+              <label class="form-checkbox"><input type="checkbox" name="concerns" value="Self-Harm"><span>Self-Harm</span></label>
+              <label class="form-checkbox"><input type="checkbox" name="concerns" value="Other"><span>Other</span></label>
+            </div>
+
+            <div class="form-group" style="margin-top: 0.75rem;">
+              <label class="form-label" for="intake-concerns-other">If Other, please describe:</label>
+              <input type="text" id="intake-concerns-other" name="concerns_other" class="form-input">
+            </div>
+
+            <!-- Section G: Safety Screening -->
+            <h3>Section G: Safety Screening</h3>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="intake-safety-self">Are you currently having thoughts of harming yourself? <span class="required">*</span></label>
+                <select id="intake-safety-self" name="safety_self" class="form-select" required aria-required="true">
+                  <option value="">Select...</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="intake-safety-others">Are you currently having thoughts of harming others? <span class="required">*</span></label>
+                <select id="intake-safety-others" name="safety_others" class="form-select" required aria-required="true">
+                  <option value="">Select...</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="intake-safety-firearms">Do you have access to firearms or other weapons?</label>
+                <select id="intake-safety-firearms" name="safety_firearms" class="form-select">
+                  <option value="">Select...</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="intake-safety-safe">Do you feel safe in your current living situation?</label>
+                <select id="intake-safety-safe" name="safety_safe" class="form-select">
+                  <option value="">Select...</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="safety-notice">
+              <p>If you are in immediate danger, please call 911 or go to your nearest emergency room. You can also call or text 988 (Suicide &amp; Crisis Lifeline) 24 hours a day, 7 days a week.</p>
+            </div>
+
+            <!-- Section H: Signature -->
+            <h3>Section H: Signature</h3>
+
+            <div class="signature-section">
+              <h4>Client Signature</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="intake-signature">Type your full legal name as signature <span class="required">*</span></label>
+                  <input type="text" id="intake-signature" name="signature" class="form-input" required aria-required="true" style="font-style: italic;">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="intake-signature-date">Date <span class="required">*</span></label>
+                  <input type="date" id="intake-signature-date" name="signature_date" class="form-input signature-date" required aria-required="true">
+                </div>
+              </div>
+
+              <h4 style="margin-top: 1.25rem;">Parent / Guardian Signature (if client is a minor)</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="intake-guardian-signature">Type your full legal name as signature</label>
+                  <input type="text" id="intake-guardian-signature" name="guardian_signature" class="form-input" style="font-style: italic;">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="intake-guardian-date">Date</label>
+                  <input type="date" id="intake-guardian-date" name="guardian_date" class="form-input signature-date">
+                </div>
+              </div>
+            </div>
+
+          </div><!-- end form-section__body -->
+
+          <div class="form-section__footer">
+            <button type="button" class="btn btn--outline" onclick="printForm('intake-form')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+              Print This Form
+            </button>
+            <button type="button" class="btn btn--primary" onclick="emailForm('intake-form', 'New Client Intake Form')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Email to Office
+            </button>
+          </div>
+
+        </div><!-- end form-section -->
+      </div>
+    </section>
+
+    <!-- ============================
+         FORM 2: Consent for Treatment
+         ============================ -->
+    <section class="section section--light" aria-labelledby="consent-form-heading">
+      <div class="container">
+        <div class="form-section" id="consent-form">
+
+          <div class="print-header">
+            <p class="print-header__practice">Paula S. Gordy LISW, LLC</p>
+            <p class="print-header__subtitle">Outpatient Mental Health Services</p>
+            <p class="print-header__contact">(641) 856-2688 | Fax: (641) 856-2690 | info@paulagordy.com</p>
+            <p class="print-header__confidential">Confidential</p>
+            <p class="print-header__formtitle">Consent for Treatment</p>
+          </div>
+
+          <div class="form-section__header">
+            <div class="form-section__title">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <h2 id="consent-form-heading">Consent for Treatment</h2>
+            </div>
+            <div class="form-section__actions">
+              <button type="button" class="btn btn--print" onclick="printForm('consent-form')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                Print This Form
+              </button>
+              <button type="button" class="btn btn--email" onclick="emailForm('consent-form', 'Consent for Treatment')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Email to Office
+              </button>
+            </div>
+          </div>
+
+          <div class="form-section__body">
+
+            <div class="consent-text">
+              <h4>Consent for Mental Health Treatment</h4>
+              <p>I, the undersigned, voluntarily consent to receive outpatient mental health treatment from Paula S. Gordy LISW, LLC. I understand that the practice provides counseling and psychotherapy services delivered by licensed mental health professionals.</p>
+
+              <h4>Nature of Services</h4>
+              <p>I understand that counseling and psychotherapy involve a collaborative process between the client and therapist. Therapy may include discussion of personal history, current concerns, emotions, relationships, and behavior patterns. The goal of therapy is to improve emotional well-being, develop coping skills, resolve identified concerns, and support personal growth. I understand that results are not guaranteed and that therapy may at times bring up difficult or uncomfortable feelings as part of the healing process.</p>
+
+              <h4>Right to Discontinue</h4>
+              <p>I understand that I may discontinue treatment at any time. I am encouraged to discuss any concerns about my treatment with my therapist. If I choose to end services, I may be offered referrals to other providers as appropriate.</p>
+
+              <h4>Limits of Confidentiality</h4>
+              <p>I understand that the information I share during treatment is confidential and protected by federal and state laws, including HIPAA. However, I understand there are specific, legally required exceptions to confidentiality, including but not limited to:</p>
+              <ol>
+                <li>If I am determined to be a danger to myself or others</li>
+                <li>If there is reasonable suspicion of abuse or neglect of a child, dependent adult, or elder</li>
+                <li>If a valid court order requires disclosure of treatment records</li>
+                <li>If otherwise required or permitted by applicable law</li>
+              </ol>
+              <p>My therapist will make every effort to discuss any limitations to confidentiality with me before disclosure is required.</p>
+
+              <h4>Active Participation</h4>
+              <p>I agree to participate actively in the treatment process, including attending scheduled sessions, being honest with my therapist, and completing any agreed-upon tasks or homework between sessions.</p>
+
+              <h4>Fees and Payment</h4>
+              <p>I understand the fees and payment policies as outlined in the Financial Agreement. I understand that payment (including copays, coinsurance, and deductibles) is due at the time of service unless other arrangements have been made.</p>
+
+              <h4>Cancellation Policy</h4>
+              <p>I understand the 24-hour cancellation policy. Appointments canceled with less than 24 hours notice or missed without notice may be subject to a missed appointment fee. I agree to provide timely notice if I need to cancel or reschedule.</p>
+
+              <h4>Privacy Practices</h4>
+              <p>I acknowledge that I have received or been offered a copy of the Notice of Privacy Practices, which describes how my protected health information may be used and disclosed, and my rights regarding that information.</p>
+
+              <h4>Communication</h4>
+              <p>I consent to communication via the contact methods I have indicated on my intake form (phone, text, and/or email). I understand that standard phone, text, and email communication may not be fully secure, and I accept the associated risks.</p>
+            </div>
+
+            <div class="signature-section">
+              <p><strong>By signing below, I acknowledge that I have read, understand, and agree to the terms described above. I voluntarily consent to receive mental health treatment from Paula S. Gordy LISW, LLC.</strong></p>
+
+              <h4 style="margin-top: 1.25rem;">Client Signature</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="consent-client-name">Client Name (Print)</label>
+                  <input type="text" id="consent-client-name" name="consent_client_name" class="form-input">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="consent-signature">Type your full legal name as signature <span class="required">*</span></label>
+                  <input type="text" id="consent-signature" name="consent_signature" class="form-input" required aria-required="true" style="font-style: italic;">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="consent-date">Date <span class="required">*</span></label>
+                  <input type="date" id="consent-date" name="consent_date" class="form-input signature-date" required aria-required="true">
+                </div>
+                <div class="form-group"></div>
+              </div>
+
+              <h4 style="margin-top: 1.25rem;">Parent / Guardian Signature (if applicable)</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="consent-guardian-signature">Type your full legal name as signature</label>
+                  <input type="text" id="consent-guardian-signature" name="consent_guardian_signature" class="form-input" style="font-style: italic;">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="consent-guardian-date">Date</label>
+                  <input type="date" id="consent-guardian-date" name="consent_guardian_date" class="form-input signature-date">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form-section__footer">
+            <button type="button" class="btn btn--outline" onclick="printForm('consent-form')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+              Print This Form
+            </button>
+            <button type="button" class="btn btn--primary" onclick="emailForm('consent-form', 'Consent for Treatment')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Email to Office
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         FORM 3: Financial Agreement
+         ============================ -->
+    <section class="section" aria-labelledby="financial-form-heading">
+      <div class="container">
+        <div class="form-section" id="financial-form">
+
+          <div class="print-header">
+            <p class="print-header__practice">Paula S. Gordy LISW, LLC</p>
+            <p class="print-header__subtitle">Outpatient Mental Health Services</p>
+            <p class="print-header__contact">(641) 856-2688 | Fax: (641) 856-2690 | info@paulagordy.com</p>
+            <p class="print-header__confidential">Confidential</p>
+            <p class="print-header__formtitle">Financial Agreement</p>
+          </div>
+
+          <div class="form-section__header">
+            <div class="form-section__title">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+              <h2 id="financial-form-heading">Financial Agreement</h2>
+            </div>
+            <div class="form-section__actions">
+              <button type="button" class="btn btn--print" onclick="printForm('financial-form')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                Print This Form
+              </button>
+              <button type="button" class="btn btn--email" onclick="emailForm('financial-form', 'Financial Agreement')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Email to Office
+              </button>
+            </div>
+          </div>
+
+          <div class="form-section__body">
+
+            <div class="consent-text">
+              <h4>Financial Policy</h4>
+              <p>Thank you for choosing Paula S. Gordy LISW, LLC for your mental health care. We are committed to providing you with the best possible services. The following is a statement of our financial policies. Please read it carefully and indicate your understanding and agreement by signing below.</p>
+
+              <h4>Payment at Time of Service</h4>
+              <p>All copayments, coinsurance, deductibles, and self-pay fees are due at the time of service. Payment is expected at each session unless other arrangements have been made in advance with our office.</p>
+
+              <h4>Accepted Payment Methods</h4>
+              <p>We accept the following forms of payment: cash, personal check, and credit or debit card (Visa, MasterCard, Discover).</p>
+
+              <h4>Insurance Billing</h4>
+              <p>As a courtesy, we will submit claims to your insurance company on your behalf. We will make reasonable efforts to verify your benefits prior to your first appointment. However, verification of benefits is not a guarantee of payment. You are ultimately responsible for understanding your insurance coverage and for any balance not covered by your insurance plan.</p>
+
+              <h4>Client Responsibility</h4>
+              <p>You are responsible for any charges not paid by your insurance, including but not limited to copays, coinsurance amounts, deductibles, and services determined to be non-covered or out-of-network by your plan. If your insurance denies a claim for any reason, you will be responsible for the full amount of the charges.</p>
+
+              <h4>Cancellation and No-Show Policy</h4>
+              <p>We require at least 24 hours advance notice if you need to cancel or reschedule an appointment. Appointments canceled with less than 24 hours notice, or missed without notice (no-show), may be subject to a missed appointment fee. Insurance does not cover missed appointment fees. Repeated missed appointments may result in discharge from services.</p>
+
+              <h4>Returned Check Fee</h4>
+              <p>A fee will be assessed for any check returned by the bank for insufficient funds. This fee is in addition to the original amount owed.</p>
+
+              <h4>Past Due Balances and Collections</h4>
+              <p>Balances that remain unpaid for more than 90 days may be referred to a collections agency. If an account is sent to collections, you will be responsible for any additional fees incurred during the collections process. We will make every effort to work with you on a payment arrangement before taking this step.</p>
+
+              <h4>Self-Pay Rates</h4>
+              <p>Self-pay rates are available upon request. Please contact our office for current session fees. We strive to make our services accessible and are happy to discuss payment options with you.</p>
+
+              <h4>Sliding Scale</h4>
+              <p>A sliding scale fee may be available based on demonstrated financial need. Eligibility is determined on a case-by-case basis. Please speak with our office if you would like to inquire about this option.</p>
+
+              <h4>Good Faith Estimate &mdash; No Surprises Act</h4>
+              <p>Under the No Surprises Act (effective January 1, 2022), you have the right to receive a Good Faith Estimate of the expected charges for services. This estimate is provided in advance of your scheduled services and is not a contract or guarantee of final charges. If you receive a bill that is at least $400 more than your Good Faith Estimate, you can dispute the bill. For questions or more information about your right to a Good Faith Estimate, visit <strong>cms.gov/nosurprises</strong> or call <strong>1-800-985-3059</strong>.</p>
+            </div>
+
+            <div class="form-group">
+              <label class="form-checkbox">
+                <input type="checkbox" id="financial-acknowledge" name="financial_acknowledge" required aria-required="true">
+                <span><strong>I have read, understand, and agree to the financial policies described above.</strong> I accept responsibility for any charges not covered by my insurance and agree to the payment and cancellation policies of Paula S. Gordy LISW, LLC.</span>
+              </label>
+            </div>
+
+            <div class="signature-section">
+              <h4>Client Signature</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="financial-client-name">Client Name (Print)</label>
+                  <input type="text" id="financial-client-name" name="financial_client_name" class="form-input">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="financial-signature">Type your full legal name as signature <span class="required">*</span></label>
+                  <input type="text" id="financial-signature" name="financial_signature" class="form-input" required aria-required="true" style="font-style: italic;">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="financial-date">Date <span class="required">*</span></label>
+                  <input type="date" id="financial-date" name="financial_date" class="form-input signature-date" required aria-required="true">
+                </div>
+                <div class="form-group"></div>
+              </div>
+
+              <h4 style="margin-top: 1.25rem;">Parent / Guardian Signature (if applicable)</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="financial-guardian-signature">Type your full legal name as signature</label>
+                  <input type="text" id="financial-guardian-signature" name="financial_guardian_signature" class="form-input" style="font-style: italic;">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="financial-guardian-date">Date</label>
+                  <input type="date" id="financial-guardian-date" name="financial_guardian_date" class="form-input signature-date">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form-section__footer">
+            <button type="button" class="btn btn--outline" onclick="printForm('financial-form')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+              Print This Form
+            </button>
+            <button type="button" class="btn btn--primary" onclick="emailForm('financial-form', 'Financial Agreement')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Email to Office
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         FORM 4: Release of Information
+         ============================ -->
+    <section class="section section--light" aria-labelledby="release-form-heading">
+      <div class="container">
+        <div class="form-section" id="release-form">
+
+          <div class="print-header">
+            <p class="print-header__practice">Paula S. Gordy LISW, LLC</p>
+            <p class="print-header__subtitle">Outpatient Mental Health Services</p>
+            <p class="print-header__contact">(641) 856-2688 | Fax: (641) 856-2690 | info@paulagordy.com</p>
+            <p class="print-header__confidential">Confidential</p>
+            <p class="print-header__formtitle">Authorization for Release of Information</p>
+          </div>
+
+          <div class="form-section__header">
+            <div class="form-section__title">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <h2 id="release-form-heading">Release of Information</h2>
+            </div>
+            <div class="form-section__actions">
+              <button type="button" class="btn btn--print" onclick="printForm('release-form')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                Print This Form
+              </button>
+              <button type="button" class="btn btn--email" onclick="emailForm('release-form', 'Release of Information')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Email to Office
+              </button>
+            </div>
+          </div>
+
+          <div class="form-section__body">
+
+            <h3>Client Information</h3>
+
+            <div class="form-row form-row--3">
+              <div class="form-group">
+                <label class="form-label" for="release-client-name">Client Name <span class="required">*</span></label>
+                <input type="text" id="release-client-name" name="release_client_name" class="form-input" required aria-required="true">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="release-client-dob">Date of Birth <span class="required">*</span></label>
+                <input type="date" id="release-client-dob" name="release_client_dob" class="form-input" required aria-required="true">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="release-client-phone">Phone Number</label>
+                <input type="tel" id="release-client-phone" name="release_client_phone" class="form-input">
+              </div>
+            </div>
+
+            <h3>Authorization</h3>
+
+            <p>I authorize <strong>Paula S. Gordy LISW, LLC</strong> to:</p>
+            <div class="form-group">
+              <label class="form-checkbox">
+                <input type="checkbox" name="release_direction" value="Release information TO">
+                <span><strong>Release information TO</strong> the following party</span>
+              </label>
+            </div>
+            <div class="form-group">
+              <label class="form-checkbox">
+                <input type="checkbox" name="release_direction" value="Obtain information FROM">
+                <span><strong>Obtain information FROM</strong> the following party</span>
+              </label>
+            </div>
+
+            <h3>Receiving / Sending Party</h3>
+
+            <div class="form-group">
+              <label class="form-label" for="release-party-name">Name of Person or Organization <span class="required">*</span></label>
+              <input type="text" id="release-party-name" name="release_party_name" class="form-input" required aria-required="true">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="release-party-address">Address</label>
+              <input type="text" id="release-party-address" name="release_party_address" class="form-input">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="release-party-phone">Phone</label>
+                <input type="tel" id="release-party-phone" name="release_party_phone" class="form-input">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="release-party-fax">Fax</label>
+                <input type="tel" id="release-party-fax" name="release_party_fax" class="form-input">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="release-purpose">Purpose of Release <span class="required">*</span></label>
+              <select id="release-purpose" name="release_purpose" class="form-select" required aria-required="true">
+                <option value="">Select purpose...</option>
+                <option value="Coordination of Care">Coordination of Care</option>
+                <option value="Legal">Legal</option>
+                <option value="Personal">Personal</option>
+                <option value="Insurance">Insurance</option>
+                <option value="School">School</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <h3>Specific Information to Be Released (check all that apply)</h3>
+
+            <div class="checkbox-grid">
+              <label class="form-checkbox"><input type="checkbox" name="release_info" value="Assessment/Diagnosis"><span>Assessment / Diagnosis</span></label>
+              <label class="form-checkbox"><input type="checkbox" name="release_info" value="Treatment Plan"><span>Treatment Plan</span></label>
+              <label class="form-checkbox"><input type="checkbox" name="release_info" value="Progress Notes"><span>Progress Notes</span></label>
+              <label class="form-checkbox"><input type="checkbox" name="release_info" value="Discharge Summary"><span>Discharge Summary</span></label>
+              <label class="form-checkbox"><input type="checkbox" name="release_info" value="Medication Information"><span>Medication Information</span></label>
+              <label class="form-checkbox"><input type="checkbox" name="release_info" value="Other"><span>Other</span></label>
+            </div>
+
+            <div class="form-group" style="margin-top: 0.75rem;">
+              <label class="form-label" for="release-info-other">If Other, please specify:</label>
+              <input type="text" id="release-info-other" name="release_info_other" class="form-input">
+            </div>
+
+            <h3>Expiration</h3>
+
+            <div class="form-group">
+              <label class="form-label" for="release-expiration">This authorization expires on: <span class="required">*</span></label>
+              <input type="date" id="release-expiration" name="release_expiration" class="form-input release-expiration-date" required aria-required="true">
+              <p class="form-hint">Default is one year from today. You may choose an earlier date.</p>
+            </div>
+
+            <div class="notice notice--info" style="margin-top: 1rem;">
+              <div>
+                <p>I understand that I may revoke this authorization at any time by providing written notice to Paula S. Gordy LISW, LLC. Revocation will not apply to information that has already been released in reliance on this authorization.</p>
+                <p style="margin-top: 0.5rem;">I understand that this authorization is voluntary and that treatment, payment, enrollment, or eligibility for benefits will not be conditioned on my signing this form.</p>
+              </div>
+            </div>
+
+            <div class="signature-section">
+              <h4>Signature</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="release-signature">Type your full legal name as signature <span class="required">*</span></label>
+                  <input type="text" id="release-signature" name="release_signature" class="form-input" required aria-required="true" style="font-style: italic;">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="release-date">Date <span class="required">*</span></label>
+                  <input type="date" id="release-date" name="release_date" class="form-input signature-date" required aria-required="true">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form-section__footer">
+            <button type="button" class="btn btn--outline" onclick="printForm('release-form')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+              Print This Form
+            </button>
+            <button type="button" class="btn btn--primary" onclick="emailForm('release-form', 'Release of Information')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Email to Office
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         FORM 5: Telehealth Consent
+         ============================ -->
+    <section class="section" aria-labelledby="telehealth-form-heading">
+      <div class="container">
+        <div class="form-section" id="telehealth-form">
+
+          <div class="print-header">
+            <p class="print-header__practice">Paula S. Gordy LISW, LLC</p>
+            <p class="print-header__subtitle">Outpatient Mental Health Services</p>
+            <p class="print-header__contact">(641) 856-2688 | Fax: (641) 856-2690 | info@paulagordy.com</p>
+            <p class="print-header__confidential">Confidential</p>
+            <p class="print-header__formtitle">Telehealth Informed Consent</p>
+          </div>
+
+          <div class="form-section__header">
+            <div class="form-section__title">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              <h2 id="telehealth-form-heading">Telehealth Consent</h2>
+            </div>
+            <div class="form-section__actions">
+              <button type="button" class="btn btn--print" onclick="printForm('telehealth-form')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                Print This Form
+              </button>
+              <button type="button" class="btn btn--email" onclick="emailForm('telehealth-form', 'Telehealth Consent')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Email to Office
+              </button>
+            </div>
+          </div>
+
+          <div class="form-section__body">
+
+            <div class="consent-text">
+              <h4>Telehealth Services Overview</h4>
+              <p>Telehealth involves the delivery of mental health services using interactive audio and video technology, allowing you and your therapist to communicate in real time from different locations. Telehealth is used as an alternative to in-person visits when appropriate and when both the client and therapist agree it is suitable for the client's needs.</p>
+
+              <h4>Benefits of Telehealth</h4>
+              <p>Telehealth can provide greater convenience and flexibility, especially for clients who live in rural areas, have transportation difficulties, have mobility limitations, or have scheduling constraints. Telehealth allows continuity of care during situations that may prevent in-person visits, such as inclement weather or illness.</p>
+
+              <h4>Risks and Limitations</h4>
+              <p>While telehealth is an effective method of delivering mental health services, there are some risks and limitations to be aware of:</p>
+              <ul>
+                <li>Technology may fail or become disrupted during a session due to internet connectivity, software issues, or hardware problems.</li>
+                <li>Despite best efforts to ensure privacy and security, there is always some risk that electronic communication could be intercepted or accessed by unauthorized parties.</li>
+                <li>Telehealth may not be appropriate for all clinical situations. Your therapist will discuss with you if in-person services are recommended.</li>
+                <li>In the event of a clinical emergency, the limitations of telehealth may reduce the ability to provide immediate in-person intervention.</li>
+              </ul>
+
+              <h4>Technology Requirements</h4>
+              <p>To participate in telehealth sessions, you will need a device (computer, tablet, or smartphone) with a working camera, microphone, and speakers, as well as a reliable internet connection. You are responsible for ensuring your device and internet connection are functional before your scheduled session.</p>
+
+              <h4>Privacy and Security</h4>
+              <p>Paula S. Gordy LISW, LLC uses a HIPAA-compliant telehealth platform to protect your privacy and the security of your health information. All video sessions are encrypted and meet federal standards for the protection of electronic health information. Your therapist will conduct sessions from a private location.</p>
+
+              <h4>Client Responsibilities</h4>
+              <p>To protect your own privacy during telehealth sessions, you agree to:</p>
+              <ul>
+                <li>Participate from a private, quiet location where you cannot be overheard by others.</li>
+                <li>Ensure no unauthorized individuals are present in your room during the session.</li>
+                <li>Not record any portion of the telehealth session without prior written consent.</li>
+                <li>Inform your therapist of your physical location at the start of each session for safety purposes.</li>
+                <li>Maintain a reliable internet connection and have your device charged or plugged in.</li>
+              </ul>
+
+              <h4>Right to Withdraw Consent</h4>
+              <p>You have the right to withdraw your consent to telehealth services at any time. Withdrawing consent will not affect your right to receive in-person services. If you wish to discontinue telehealth, please notify your therapist.</p>
+
+              <h4>Emergency Procedures</h4>
+              <p>In the event of a mental health emergency during a telehealth session, your therapist will attempt to assist you remotely. However, if you are in immediate danger, your therapist may need to contact local emergency services (911) at your location. It is important that your therapist knows your physical location during each session so that emergency services can be dispatched if necessary. Please have the address of your current location available at the start of each session.</p>
+
+              <h4>Recording Policy</h4>
+              <p>Telehealth sessions are not recorded by the therapist or the practice. Neither party may record any portion of a telehealth session without the prior written consent of all participants.</p>
+
+              <h4>Technical Difficulties</h4>
+              <p>If the technology fails during a session and the connection cannot be re-established within a reasonable time, your therapist will attempt to contact you by phone to either continue the session by phone or to reschedule. If you experience technical difficulties before a session, please contact our office at (641) 856-2688.</p>
+            </div>
+
+            <h3>Acknowledgment</h3>
+
+            <div class="form-group">
+              <label class="form-checkbox">
+                <input type="checkbox" name="telehealth_ack_1" required aria-required="true">
+                <span>I have read and understand the information provided above regarding telehealth services.</span>
+              </label>
+            </div>
+            <div class="form-group">
+              <label class="form-checkbox">
+                <input type="checkbox" name="telehealth_ack_2" required aria-required="true">
+                <span>I consent to receive mental health services via telehealth through Paula S. Gordy LISW, LLC.</span>
+              </label>
+            </div>
+            <div class="form-group">
+              <label class="form-checkbox">
+                <input type="checkbox" name="telehealth_ack_3" required aria-required="true">
+                <span>I understand that I can revoke this consent at any time by notifying my therapist in writing.</span>
+              </label>
+            </div>
+            <div class="form-group">
+              <label class="form-checkbox">
+                <input type="checkbox" name="telehealth_ack_4" required aria-required="true">
+                <span>I agree to be in a private, safe location during all telehealth sessions and to inform my therapist of my location.</span>
+              </label>
+            </div>
+
+            <div class="signature-section">
+              <h4>Client Signature</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="telehealth-client-name">Client Name (Print)</label>
+                  <input type="text" id="telehealth-client-name" name="telehealth_client_name" class="form-input">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="telehealth-signature">Type your full legal name as signature <span class="required">*</span></label>
+                  <input type="text" id="telehealth-signature" name="telehealth_signature" class="form-input" required aria-required="true" style="font-style: italic;">
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="telehealth-date">Date <span class="required">*</span></label>
+                  <input type="date" id="telehealth-date" name="telehealth_date" class="form-input signature-date" required aria-required="true">
+                </div>
+                <div class="form-group"></div>
+              </div>
+
+              <h4 style="margin-top: 1.25rem;">Parent / Guardian Signature (if applicable)</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="telehealth-guardian-signature">Type your full legal name as signature</label>
+                  <input type="text" id="telehealth-guardian-signature" name="telehealth_guardian_signature" class="form-input" style="font-style: italic;">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="telehealth-guardian-date">Date</label>
+                  <input type="date" id="telehealth-guardian-date" name="telehealth_guardian_date" class="form-input signature-date">
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form-section__footer">
+            <button type="button" class="btn btn--outline" onclick="printForm('telehealth-form')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+              Print This Form
+            </button>
+            <button type="button" class="btn btn--primary" onclick="emailForm('telehealth-form', 'Telehealth Consent')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Email to Office
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================
+         SECTION: Back to Top / CTA
+         ============================ -->
+    <section class="section section--green" aria-labelledby="forms-cta-heading">
+      <div class="container text-center">
+        <h2 id="forms-cta-heading">Need Help With Your Forms?</h2>
+        <p class="lead-text" style="max-width: 700px; margin-left: auto; margin-right: auto;">If you have questions about any of these forms or need assistance completing your paperwork, please do not hesitate to contact our office. We are happy to help.</p>
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 2rem;">
+          <a href="tel:+16418562688" class="btn btn--primary btn--large">Call (641) 856-2688</a>
+          <a href="mailto:info@paulagordy.com" class="btn btn--secondary btn--large">Email Us</a>
+          <a href="#form-nav-section" class="btn btn--outline btn--large">Back to Top</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <!-- About Column -->
+        <div class="footer__about">
+          <h3 class="footer__heading">Paula S. Gordy LISW, LLC</h3>
+          <p>Providing compassionate, professional outpatient mental health services to individuals, couples, and families across southern Iowa. Licensed Independent Social Worker serving Centerville, Ottumwa, Bloomfield, and surrounding communities.</p>
+          <div class="footer__hipaa">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>HIPAA Compliant Practice</span>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="footer__heading">Quick Links</h3>
+          <ul class="footer__links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Locations</a></li>
+            <li><a href="insurance.html">Insurance &amp; Billing</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal -->
+        <div>
+          <h3 class="footer__heading">Legal</h3>
+          <ul class="footer__links">
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="no-surprises-act.html">No Surprises Act</a></li>
+            <li><a href="accessibility.html">Accessibility</a></li>
+            <li><a href="terms.html">Terms of Use</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <h3 class="footer__heading">Contact</h3>
+          <div class="footer__contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <div>
+              <a href="tel:+16418562688">(641) 856-2688</a><br>
+              <small>Fax: (641) 856-2690</small>
+            </div>
+          </div>
+          <div class="footer__contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:info@paulagordy.com">info@paulagordy.com</a>
+          </div>
+          <div class="footer__contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>Centerville, Ottumwa &amp;<br>Bloomfield, Iowa</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer__bottom">
+        <p>&copy; 2026 Paula S. Gordy LISW, LLC. All rights reserved.</p>
+        <div class="footer__legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="no-surprises-act.html">No Surprises Act</a>
+          <a href="accessibility.html">Accessibility</a>
+          <a href="terms.html">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript (external) -->
+  <script src="../js/main.js"></script>
+
+  <!-- Forms Page Script (inline) -->
+  <script>
+    (function() {
+      'use strict';
+
+      // ========================================
+      // Track which form is currently being printed
+      // ========================================
+      var currentlyPrinting = null;
+
+      // ========================================
+      // Auto-fill today's date in signature date fields
+      // ========================================
+      function setTodaysDate() {
+        var today = new Date();
+        var yyyy = today.getFullYear();
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
+        var dd = String(today.getDate()).padStart(2, '0');
+        var dateStr = yyyy + '-' + mm + '-' + dd;
+
+        // Set all signature date fields to today
+        var signatureDates = document.querySelectorAll('.signature-date');
+        signatureDates.forEach(function(field) {
+          if (!field.value) {
+            field.value = dateStr;
+          }
+        });
+
+        // Set the release of information expiration to 1 year from today
+        var expirationField = document.querySelector('.release-expiration-date');
+        if (expirationField && !expirationField.value) {
+          var nextYear = new Date(today);
+          nextYear.setFullYear(nextYear.getFullYear() + 1);
+          var expYyyy = nextYear.getFullYear();
+          var expMm = String(nextYear.getMonth() + 1).padStart(2, '0');
+          var expDd = String(nextYear.getDate()).padStart(2, '0');
+          expirationField.value = expYyyy + '-' + expMm + '-' + expDd;
+        }
+      }
+
+      // ========================================
+      // Toggle secondary insurance fields
+      // ========================================
+      window.toggleSecondaryInsurance = function(checkbox) {
+        var fields = document.getElementById('secondary-insurance-fields');
+        if (fields) {
+          fields.classList.toggle('visible', checkbox.checked);
+        }
+      };
+
+      // ========================================
+      // Validate required fields in a form section
+      // Returns true if all required fields are filled, false otherwise
+      // ========================================
+      function validateForm(formSectionId) {
+        var section = document.getElementById(formSectionId);
+        if (!section) return true;
+
+        var requiredFields = section.querySelectorAll('[required]');
+        var allValid = true;
+        var firstInvalid = null;
+
+        // Clear previous highlights
+        section.querySelectorAll('.field-highlight').forEach(function(el) {
+          el.classList.remove('field-highlight');
+        });
+
+        requiredFields.forEach(function(field) {
+          // Skip checkboxes that are part of a group
+          if (field.type === 'checkbox') {
+            if (!field.checked) {
+              field.closest('.form-checkbox').style.color = '#e74c3c';
+              allValid = false;
+              if (!firstInvalid) firstInvalid = field;
+            } else {
+              field.closest('.form-checkbox').style.color = '';
+            }
+            return;
+          }
+
+          if (!field.value || field.value.trim() === '') {
+            field.classList.add('field-highlight');
+            allValid = false;
+            if (!firstInvalid) firstInvalid = field;
+          }
+        });
+
+        if (!allValid && firstInvalid) {
+          firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          // Show a non-blocking warning
+          alert('Some required fields are not filled in. They have been highlighted. You may continue to print or email, but please complete all required fields for accurate processing.');
+        }
+
+        return allValid;
+      }
+
+      // ========================================
+      // PRINT functionality
+      // ========================================
+      window.printForm = function(formSectionId) {
+        if (currentlyPrinting) return;
+
+        // Validate (warn but don't block)
+        validateForm(formSectionId);
+
+        currentlyPrinting = formSectionId;
+
+        // Add printing class to the target form
+        var formSection = document.getElementById(formSectionId);
+        if (!formSection) return;
+
+        formSection.classList.add('printing');
+
+        // Wait a moment for styles to apply, then print
+        setTimeout(function() {
+          window.print();
+
+          // Clean up after print dialog closes
+          setTimeout(function() {
+            formSection.classList.remove('printing');
+            currentlyPrinting = null;
+          }, 500);
+        }, 200);
+      };
+
+      // ========================================
+      // EMAIL functionality
+      // ========================================
+      window.emailForm = function(formSectionId, formName) {
+        // Validate (warn but don't block)
+        validateForm(formSectionId);
+
+        // Confirm HIPAA warning
+        var proceed = confirm(
+          'IMPORTANT: Email is not a HIPAA-secure method of transmission.\n\n' +
+          'By proceeding, you acknowledge that the information in this form will be sent ' +
+          'via standard email, which may not be encrypted or secure.\n\n' +
+          'For the most secure option, please print the form and bring it to your appointment, ' +
+          'or submit forms through the client portal.\n\n' +
+          'Do you wish to continue with email?'
+        );
+
+        if (!proceed) return;
+
+        var formSection = document.getElementById(formSectionId);
+        if (!formSection) return;
+
+        // Get client name for subject line
+        var clientName = getClientName(formSectionId);
+        var subject = 'Form Submission: ' + formName + (clientName ? ' - ' + clientName : '');
+
+        // Build the body
+        var body = buildEmailBody(formSection, formName);
+
+        // Check length - mailto has practical limits (~2000 chars for URL)
+        var maxBodyLength = 1800;
+        var truncated = false;
+
+        if (body.length > maxBodyLength) {
+          body = body.substring(0, maxBodyLength);
+          body += '\n\n---\n[NOTE: This form was too long to include completely via email. ' +
+                  'Please print the form and bring it to your appointment, or submit via the client portal for the complete version.]';
+          truncated = true;
+        }
+
+        // Build mailto link
+        var mailto = 'mailto:info@paulagordy.com' +
+          '?subject=' + encodeURIComponent(subject) +
+          '&body=' + encodeURIComponent(body);
+
+        // Open mailto
+        window.location.href = mailto;
+
+        if (truncated) {
+          setTimeout(function() {
+            alert(
+              'Note: Due to email length limitations, the full form content may not have been included. ' +
+              'We recommend printing the form to bring to your appointment for the most complete submission.'
+            );
+          }, 1000);
+        }
+      };
+
+      // ========================================
+      // Get client name from form
+      // ========================================
+      function getClientName(formSectionId) {
+        var section = document.getElementById(formSectionId);
+        if (!section) return '';
+
+        // Try to find the signature field or name field
+        var nameField;
+
+        switch (formSectionId) {
+          case 'intake-form':
+            var first = section.querySelector('#intake-first-name');
+            var last = section.querySelector('#intake-last-name');
+            if (first && last) return (first.value + ' ' + last.value).trim();
+            break;
+          case 'consent-form':
+            nameField = section.querySelector('#consent-client-name');
+            break;
+          case 'financial-form':
+            nameField = section.querySelector('#financial-client-name');
+            break;
+          case 'release-form':
+            nameField = section.querySelector('#release-client-name');
+            break;
+          case 'telehealth-form':
+            nameField = section.querySelector('#telehealth-client-name');
+            break;
+        }
+
+        return nameField ? nameField.value.trim() : '';
+      }
+
+      // ========================================
+      // Build formatted email body from form fields
+      // ========================================
+      function buildEmailBody(formSection, formName) {
+        var lines = [];
+        lines.push('PAULA S. GORDY LISW, LLC');
+        lines.push('FORM SUBMISSION: ' + formName.toUpperCase());
+        lines.push('Date: ' + new Date().toLocaleDateString());
+        lines.push('');
+        lines.push('='.repeat(40));
+        lines.push('');
+
+        // Get all form groups with labels and inputs
+        var allInputs = formSection.querySelectorAll('input, select, textarea');
+
+        allInputs.forEach(function(input) {
+          var label = '';
+          var value = '';
+
+          // Find the label for this input
+          if (input.id) {
+            var labelEl = formSection.querySelector('label[for="' + input.id + '"]');
+            if (labelEl) {
+              label = labelEl.textContent.replace(/\s*\*\s*/g, '').trim();
+            }
+          }
+
+          // For checkboxes inside labels
+          if (input.type === 'checkbox') {
+            var parentLabel = input.closest('label');
+            if (parentLabel) {
+              var spanEl = parentLabel.querySelector('span');
+              label = spanEl ? spanEl.textContent.trim() : parentLabel.textContent.trim();
+            }
+            value = input.checked ? 'Yes' : 'No';
+
+            // Only include checked checkboxes for concern/info checkboxes
+            if (input.name === 'concerns' || input.name === 'release_info' || input.name === 'release_direction') {
+              if (input.checked) {
+                lines.push('  [X] ' + (input.value || label));
+              }
+              return;
+            }
+
+            // For acknowledgment checkboxes, show the checked status
+            lines.push(label + ': ' + value);
+            return;
+          }
+
+          // Get value
+          if (input.type === 'date' && input.value) {
+            // Format date nicely
+            var parts = input.value.split('-');
+            if (parts.length === 3) {
+              value = parts[1] + '/' + parts[2] + '/' + parts[0];
+            } else {
+              value = input.value;
+            }
+          } else {
+            value = input.value || '(not provided)';
+          }
+
+          if (label && value) {
+            lines.push(label + ': ' + value);
+          }
+        });
+
+        lines.push('');
+        lines.push('='.repeat(40));
+        lines.push('');
+        lines.push('This form was completed online at paulagordy.com and submitted via email.');
+        lines.push('Email is not a HIPAA-secure method of transmission.');
+
+        return lines.join('\n');
+      }
+
+      // ========================================
+      // Initialize on DOM ready
+      // ========================================
+      document.addEventListener('DOMContentLoaded', function() {
+        setTodaysDate();
+      });
+
+    })();
+  </script>
+
+</body>
+</html>
