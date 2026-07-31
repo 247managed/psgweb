@@ -72,4 +72,4 @@ Static HTML website for Paula S. Gordy LISW, LLC, a behavioral health practice i
 - Phone: (641) 856-2688
 - Fax: (641) 856-2690
 - Email: info@paulagordy.com
-- Client Portal: https://ehr.paulagordy.com/portal/login
+- Client Portal: https://portal.paulagordy.com/login
