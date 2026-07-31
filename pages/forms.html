@@ -1936,7 +1936,9 @@
           'By proceeding, you acknowledge that the information in this form will be sent ' +
           'via standard email, which may not be encrypted or secure.\n\n' +
           'For the most secure option, please print the form and bring it to your appointment, ' +
-          'or submit forms through the client portal.\n\n' +
+          'or call the office at (641) 856-2688 to arrange secure delivery.\n\n' +
+          'Note: the client portal cannot accept forms downloaded from this page. Forms your ' +
+          'provider assigns to you are completed and signed directly in the portal.\n\n' +
           'Do you wish to continue with email?'
         );
 
@@ -1959,7 +1961,7 @@
         if (body.length > maxBodyLength) {
           body = body.substring(0, maxBodyLength);
           body += '\n\n---\n[NOTE: This form was too long to include completely via email. ' +
-                  'Please print the form and bring it to your appointment, or submit via the client portal for the complete version.]';
+                  'Please print the form and bring it to your appointment, or call the office at (641) 856-2688, for the complete version.]';
           truncated = true;
         }
 
