@@ -94,17 +94,6 @@
       background: #e8f0f5;
     }
 
-    .btn--email {
-      background: transparent;
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.6);
-    }
-
-    .btn--email:hover {
-      background: rgba(255,255,255,0.1);
-      border-color: #fff;
-    }
-
     .form-section__body {
       padding: 2rem;
     }
@@ -413,7 +402,6 @@
       .form-section__footer,
       .form-section__actions,
       .btn--print,
-      .btn--email,
       .crisis-banner,
       .top-bar,
       .site-header,
@@ -612,12 +600,12 @@
       <div class="container">
         <div class="text-center mb-xl">
           <h2 id="instructions-heading" class="sr-only">How to Use These Forms</h2>
-          <p class="lead-text" style="max-width: 800px; margin-left: auto; margin-right: auto;">Complete any of the forms below directly in your browser. When finished, you can print the form to bring to your appointment or email it to our office.</p>
+          <p class="lead-text" style="max-width: 800px; margin-left: auto; margin-right: auto;">Complete any of the forms below directly in your browser, then print the completed form and bring it to your appointment.</p>
         </div>
 
         <div class="notice notice--warning mb-xl">
           <div>
-            <p><strong>Important HIPAA Notice:</strong> These forms are submitted via standard email, which is not a HIPAA-secure method of transmission. By choosing to email a completed form, you acknowledge and accept this risk. For the most secure option, please use our <a href="https://portal.paulagordy.com/login" target="_blank" rel="noopener noreferrer">client portal</a> or bring printed forms to your appointment.</p>
+            <p><strong>Important HIPAA Notice:</strong> Please do not email these completed forms. Standard email is not a HIPAA-secure method of transmission, and these forms ask for your Social Security number, insurance details, and clinical information. Print the completed form and bring it to your appointment. If you are already a client, the office can send intake and consent paperwork to you for completion and signature inside our <a href="https://portal.paulagordy.com/login" target="_blank" rel="noopener noreferrer">client portal</a>; call <a href="tel:+16418562688">(641) 856-2688</a> to arrange that.</p>
           </div>
         </div>
 
@@ -633,9 +621,9 @@
             <p>Print completed forms to bring to your appointment.</p>
           </div>
           <div class="option-card">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            <h3>Email to Office</h3>
-            <p>Send completed forms to info@paulagordy.com.</p>
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            <h3>Bring It With You</h3>
+            <p>Hand your printed form to us at your appointment &mdash; no email required.</p>
           </div>
         </div>
       </div>
@@ -683,10 +671,6 @@
               <button type="button" class="btn btn--print" onclick="printForm('intake-form')" aria-label="Print New Client Intake Form">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
                 Print This Form
-              </button>
-              <button type="button" class="btn btn--email" onclick="emailForm('intake-form', 'New Client Intake Form')" aria-label="Email New Client Intake Form to office">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                Email to Office
               </button>
             </div>
           </div>
@@ -1127,10 +1111,6 @@
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
               Print This Form
             </button>
-            <button type="button" class="btn btn--primary" onclick="emailForm('intake-form', 'New Client Intake Form')">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              Email to Office
-            </button>
           </div>
 
         </div><!-- end form-section -->
@@ -1161,10 +1141,6 @@
               <button type="button" class="btn btn--print" onclick="printForm('consent-form')">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
                 Print This Form
-              </button>
-              <button type="button" class="btn btn--email" onclick="emailForm('consent-form', 'Consent for Treatment')">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                Email to Office
               </button>
             </div>
           </div>
@@ -1249,10 +1225,6 @@
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
               Print This Form
             </button>
-            <button type="button" class="btn btn--primary" onclick="emailForm('consent-form', 'Consent for Treatment')">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              Email to Office
-            </button>
           </div>
 
         </div>
@@ -1283,10 +1255,6 @@
               <button type="button" class="btn btn--print" onclick="printForm('financial-form')">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
                 Print This Form
-              </button>
-              <button type="button" class="btn btn--email" onclick="emailForm('financial-form', 'Financial Agreement')">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                Email to Office
               </button>
             </div>
           </div>
@@ -1375,10 +1343,6 @@
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
               Print This Form
             </button>
-            <button type="button" class="btn btn--primary" onclick="emailForm('financial-form', 'Financial Agreement')">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              Email to Office
-            </button>
           </div>
 
         </div>
@@ -1409,10 +1373,6 @@
               <button type="button" class="btn btn--print" onclick="printForm('release-form')">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
                 Print This Form
-              </button>
-              <button type="button" class="btn btn--email" onclick="emailForm('release-form', 'Release of Information')">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                Email to Office
               </button>
             </div>
           </div>
@@ -1540,10 +1500,6 @@
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
               Print This Form
             </button>
-            <button type="button" class="btn btn--primary" onclick="emailForm('release-form', 'Release of Information')">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              Email to Office
-            </button>
           </div>
 
         </div>
@@ -1574,10 +1530,6 @@
               <button type="button" class="btn btn--print" onclick="printForm('telehealth-form')">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
                 Print This Form
-              </button>
-              <button type="button" class="btn btn--email" onclick="emailForm('telehealth-form', 'Telehealth Consent')">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                Email to Office
               </button>
             </div>
           </div>
@@ -1695,10 +1647,6 @@
             <button type="button" class="btn btn--outline" onclick="printForm('telehealth-form')">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
               Print This Form
-            </button>
-            <button type="button" class="btn btn--primary" onclick="emailForm('telehealth-form', 'Telehealth Consent')">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-              Email to Office
             </button>
           </div>
 
@@ -1922,173 +1870,6 @@
           }, 500);
         }, 200);
       };
-
-      // ========================================
-      // EMAIL functionality
-      // ========================================
-      window.emailForm = function(formSectionId, formName) {
-        // Validate (warn but don't block)
-        validateForm(formSectionId);
-
-        // Confirm HIPAA warning
-        var proceed = confirm(
-          'IMPORTANT: Email is not a HIPAA-secure method of transmission.\n\n' +
-          'By proceeding, you acknowledge that the information in this form will be sent ' +
-          'via standard email, which may not be encrypted or secure.\n\n' +
-          'For the most secure option, please print the form and bring it to your appointment, ' +
-          'or submit forms through the client portal.\n\n' +
-          'Do you wish to continue with email?'
-        );
-
-        if (!proceed) return;
-
-        var formSection = document.getElementById(formSectionId);
-        if (!formSection) return;
-
-        // Get client name for subject line
-        var clientName = getClientName(formSectionId);
-        var subject = 'Form Submission: ' + formName + (clientName ? ' - ' + clientName : '');
-
-        // Build the body
-        var body = buildEmailBody(formSection, formName);
-
-        // Check length - mailto has practical limits (~2000 chars for URL)
-        var maxBodyLength = 1800;
-        var truncated = false;
-
-        if (body.length > maxBodyLength) {
-          body = body.substring(0, maxBodyLength);
-          body += '\n\n---\n[NOTE: This form was too long to include completely via email. ' +
-                  'Please print the form and bring it to your appointment, or submit via the client portal for the complete version.]';
-          truncated = true;
-        }
-
-        // Build mailto link
-        var mailto = 'mailto:info@paulagordy.com' +
-          '?subject=' + encodeURIComponent(subject) +
-          '&body=' + encodeURIComponent(body);
-
-        // Open mailto
-        window.location.href = mailto;
-
-        if (truncated) {
-          setTimeout(function() {
-            alert(
-              'Note: Due to email length limitations, the full form content may not have been included. ' +
-              'We recommend printing the form to bring to your appointment for the most complete submission.'
-            );
-          }, 1000);
-        }
-      };
-
-      // ========================================
-      // Get client name from form
-      // ========================================
-      function getClientName(formSectionId) {
-        var section = document.getElementById(formSectionId);
-        if (!section) return '';
-
-        // Try to find the signature field or name field
-        var nameField;
-
-        switch (formSectionId) {
-          case 'intake-form':
-            var first = section.querySelector('#intake-first-name');
-            var last = section.querySelector('#intake-last-name');
-            if (first && last) return (first.value + ' ' + last.value).trim();
-            break;
-          case 'consent-form':
-            nameField = section.querySelector('#consent-client-name');
-            break;
-          case 'financial-form':
-            nameField = section.querySelector('#financial-client-name');
-            break;
-          case 'release-form':
-            nameField = section.querySelector('#release-client-name');
-            break;
-          case 'telehealth-form':
-            nameField = section.querySelector('#telehealth-client-name');
-            break;
-        }
-
-        return nameField ? nameField.value.trim() : '';
-      }
-
-      // ========================================
-      // Build formatted email body from form fields
-      // ========================================
-      function buildEmailBody(formSection, formName) {
-        var lines = [];
-        lines.push('PAULA S. GORDY LISW, LLC');
-        lines.push('FORM SUBMISSION: ' + formName.toUpperCase());
-        lines.push('Date: ' + new Date().toLocaleDateString());
-        lines.push('');
-        lines.push('='.repeat(40));
-        lines.push('');
-
-        // Get all form groups with labels and inputs
-        var allInputs = formSection.querySelectorAll('input, select, textarea');
-
-        allInputs.forEach(function(input) {
-          var label = '';
-          var value = '';
-
-          // Find the label for this input
-          if (input.id) {
-            var labelEl = formSection.querySelector('label[for="' + input.id + '"]');
-            if (labelEl) {
-              label = labelEl.textContent.replace(/\s*\*\s*/g, '').trim();
-            }
-          }
-
-          // For checkboxes inside labels
-          if (input.type === 'checkbox') {
-            var parentLabel = input.closest('label');
-            if (parentLabel) {
-              var spanEl = parentLabel.querySelector('span');
-              label = spanEl ? spanEl.textContent.trim() : parentLabel.textContent.trim();
-            }
-            value = input.checked ? 'Yes' : 'No';
-
-            // Only include checked checkboxes for concern/info checkboxes
-            if (input.name === 'concerns' || input.name === 'release_info' || input.name === 'release_direction') {
-              if (input.checked) {
-                lines.push('  [X] ' + (input.value || label));
-              }
-              return;
-            }
-
-            // For acknowledgment checkboxes, show the checked status
-            lines.push(label + ': ' + value);
-            return;
-          }
-
-          // Get value
-          if (input.type === 'date' && input.value) {
-            // Format date nicely
-            var parts = input.value.split('-');
-            if (parts.length === 3) {
-              value = parts[1] + '/' + parts[2] + '/' + parts[0];
-            } else {
-              value = input.value;
-            }
-          } else {
-            value = input.value || '(not provided)';
-          }
-
-          if (label && value) {
-            lines.push(label + ': ' + value);
-          }
-        });
-
-        lines.push('');
-        lines.push('='.repeat(40));
-        lines.push('');
-        lines.push('This form was completed online at paulagordy.com and submitted via email.');
-        lines.push('Email is not a HIPAA-secure method of transmission.');
-
-        return lines.join('\n');
-      }
 
       // ========================================
       // Initialize on DOM ready
