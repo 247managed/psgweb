@@ -466,16 +466,24 @@ have no way to report that they failed — and in the case of the contact form, 
 
 ## Findings filed
 
-| # | Title | Severity |
-|---|---|---|
-| F1 | Contact form tells clients their message was received; nothing is sent | **high** |
-| F2 | Regulatory & privacy assurances not supported by the code (→ Sylvia) | **high** |
-| F3 | No Good Faith Estimate mechanism exists anywhere in the software; NPI/TIN are placeholders | **high** |
-| F4 | PAU-133's five portal claims are still live — the corrections are unmerged | **medium** |
-| F5 | Website states the client portal is a third-party vendor product | **medium** |
-| F6 | Group/Family/Telehealth note types are dead; Group Therapy is a headline service | **medium** |
-| F7 | `CLAUDE.md` names six team members deliberately removed from the site | **low** |
-| F8 | Three inconsistent tenure figures on the homepage, two in one element | **low** |
+Each filed exactly once, at the end of the run, per the wave-2 correction.
+
+| # | Ticket | Title | Severity |
+|---|---|---|---|
+| F1 | **PAU-241** | Contact form tells clients their message was received and sends nothing | **high** |
+| F2 | **PAU-242** → Sylvia | Four regulatory/privacy assurances the code does not support | **high** |
+| F3 | **PAU-243** | No Good Faith Estimate mechanism in the software; NSA notice ships NPI/TIN placeholders | **high** |
+| F4 | *not filed — see below* | PAU-133's five portal claims are still live; the corrections are unmerged | **medium** |
+| F5 | **PAU-244** | Website states the client portal is a third-party vendor product | **medium** |
+| F6 | **PAU-245** | `GroupNote`/`FamilyNote`/`TelehealthNote` have zero usages; Group Therapy is a headline service | **medium** |
+| F7·F8 | **PAU-246** | `CLAUDE.md` roster, homepage tenure figures, cookie banner | **low** |
+
+**F4 is deliberately not a ticket.** It is a status fact about **PAU-133** (currently
+`in_review`) — that its corrections sit unmerged on `fix/portal-capability-copy` while
+GitHub Pages serves `main` — not a new finding. Filing it would produce exactly the duplicate
+the wave-2 method note warns about. It is recorded in §0, in the PAU-225 thread, and belongs
+on PAU-133's own resolution. I cannot comment on PAU-133 directly; commenting is refused
+outside my own issue subtree.
 
 Repro harness: `docs/audits/pau-225-repro/contact-form-repro.mjs` (Node 22 + Playwright;
 `node contact-form-repro.mjs /path/to/psgweb`). Exit 0 = defect reproduced.
