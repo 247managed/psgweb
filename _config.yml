@@ -1,0 +1,34 @@
+# GitHub Pages build configuration for paulagordy.com
+#
+# Pages serves the repository ROOT of `main` (build_type: legacy, source path /).
+# Every file merged to `main` is therefore published on the public, client-facing
+# domain unless it is listed below. Internal engineering material is allowed to
+# live in this repo; it must never reach the site.
+#
+# This file adds nothing else. The site is hand-written static HTML with no
+# front matter and no Liquid tags, so Jekyll copies it through verbatim and
+# `exclude` is the only behaviour being asked for here.
+#
+# After changing this file, verify against the live site rather than assuming:
+#   node docs/audits/pau-305-repro/pages-exposure-verify.mjs https://paulagordy.com
+# Every excluded path must return 404 and every real page must still return 200.
+
+exclude:
+  # --- internal engineering material: must not be published -----------------
+  - CLAUDE.md
+  - docs/
+
+  # --- Jekyll's own defaults ------------------------------------------------
+  # Setting `exclude` REPLACES Jekyll's default exclude list rather than adding
+  # to it, so the defaults are restated here. Without this, a future `Gemfile`
+  # or `node_modules/` in the repo root would be served to the public.
+  - Gemfile
+  - Gemfile.lock
+  - gemfiles/
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .sass-cache/
+  - .jekyll-cache/
