@@ -34,6 +34,51 @@ this audit who checks the branch will conclude these claims are handled. They ar
 
 ---
 
+## §0.1 — Correction, 2026-08-01: C51 / F6 (Group Therapy) was wrong
+
+**I reversed C51.** This audit recorded that `NoteType.GroupNote = 50` was *"the only
+occurrence of group-therapy support in the codebase"* and marked the website's Group Therapy
+claim **F as software support**. That is false, and it was false at the audited commit
+`8be1c12d` — not something that landed afterwards. Verified by re-reading `8be1c12d`
+directly, not the working tree.
+
+Group therapy is supported end to end. It is keyed on **CPT 90853**, not on the note-type enum:
+
+- **Scheduling** — `AppointmentType` *"Group Therapy"* (`SeedData.cs:581-596`): code `GRP`,
+  90 minutes, `DefaultCptCode = "90853"`, `ServiceType = "Group"`, and
+  `AllowOverlap = true // Multiple clients in same group` — which is honoured, not decorative
+  (`AppointmentConflictService.cs:54`). Several clients can be booked into one slot.
+- **Documentation** — opening a note from that appointment auto-populates the billing code
+  from the appointment type (`ProgressNote.razor:2793-2796`), and `90853` is selectable from
+  the seeded `TherapyProcedures` lookup (`SeedData.cs:1051`, `ProgressNote.razor:270-276`).
+- **A code path written specifically for the group case** — the overlap guard exempts 90853 so
+  every group member's note may legitimately share one start/end time
+  (`ClinicalNoteOverlapGuardService.cs:34-37,81`; `ProgressNote.razor:3110-3113,3335`). This is
+  not an accident of a permissive check; it is a documented exemption with the reasoning in a
+  comment.
+- **Billing** — `TherapyProcedure` `90853` *"Group psychotherapy"*, $50.00, active
+  (`SeedData.cs:1051`).
+
+Family therapy is in the same state (`AppointmentType` *"Family Therapy"* / `FAM` /
+`90847`, `SeedData.cs:597-615`; `90846`/`90847` in the fee schedule at `:1049-1050`), and
+telehealth was already recorded as supported at the appointment level.
+
+**What is actually absent** is a group *entity*: no roster, no shared session record, no way to
+write one encounter against several charts. The route that works is one progress note per
+attendee, all carrying 90853 — which §2 C51 hypothesised as a workaround and which is in fact
+the implemented, defended design. The website never claims a roster.
+
+**How I got it wrong:** I grepped for the *name* (`GroupNote`) and concluded from its zero
+usages that the *capability* was absent. A name-shaped search cannot answer a
+capability-shaped question. The three unused enum members are still dead — that part stands,
+and is all that remains of F6 (§6.3).
+
+Corrected verdicts: **C51 → T as software support** (the clinical half stays `?`); C51 leaves
+the "outran the build" list in §9; F6 (**PAU-245**) drops from *medium* to *low* and becomes a
+dead-enum cleanup in the EHR repo.
+
+---
+
 ## §1 — Headline
 
 ### The website's contact form tells clients their message has been received. Nothing is sent. There is no server.
@@ -190,7 +235,7 @@ is filed as one.
 
 | # | Claim | Where | Reality (code) | V |
 |---|---|---|---|---|
-| C51 | **Group Therapy** — a headline service (`index.html:267`), a full section naming four group types (`services.html:249-316`), in the nav on 23 of 23 pages, and in `schema.org` `availableService` (`index.html:59-62`) | `index.html`, `services.html`, `therapy-*.html:140` | `NoteType.GroupNote = 50` (`EHR.Core/Entities/Clinical/NoteType.cs:42`) is the **only** occurrence of group-therapy support in the codebase and it has **zero usages** — no group entity, no roster, no group appointment, no note template, no UI that selects it. Same for `FamilyNote = 51` and `TelehealthNote = 60` (`:45,48`), both also zero-usage. | **?** clinically / **F** as software support — §6 |
+| C51 | **Group Therapy** — a headline service (`index.html:267`), a full section naming four group types (`services.html:249-316`), in the nav on 23 of 23 pages, and in `schema.org` `availableService` (`index.html:59-62`) | `index.html`, `services.html`, `therapy-*.html:140` | **Corrected 2026-08-01 — §0.1.** Supported end to end, keyed on **CPT 90853** rather than on the note-type enum: `AppointmentType` "Group Therapy" (`SeedData.cs:581-596`, `DefaultCptCode = "90853"`, `AllowOverlap = true`, honoured at `AppointmentConflictService.cs:54`); billing code auto-populated onto the note (`ProgressNote.razor:2793-2796`) and 90853 selectable from the seeded `TherapyProcedures` (`SeedData.cs:1051`); and a purpose-built overlap-guard exemption so every group member's note may share one session time (`ClinicalNoteOverlapGuardService.cs:34-37,81`, `ProgressNote.razor:3110-3113,3335`). Family therapy likewise (`FAM`/`90847`, `SeedData.cs:597-615`). Absent: a group *entity* — no roster, no shared session, no write-once-to-many-charts. `NoteType.GroupNote = 50` is unused (`NoteType.cs:42`), as are `FamilyNote = 51` and `TelehealthNote = 60` (`:45,48`) — but those name a note *format*, not the capability (§6.3). ~~`GroupNote` is the only occurrence of group-therapy support in the codebase~~ — withdrawn. | **T** as software support / **?** clinically — §0.1 |
 | C52 | "Telehealth sessions … through a secure, HIPAA-compliant video platform" | `contact.html:534`, `services.html:443`, `accessibility.html:219` | as C27 | **?** |
 | C53 | "BHIS services … skills training, individual and family support" for Iowa Medicaid members | `insurance.html:225`, `services.html:341-343` | supported — a full BHIS subsystem (`EHR.Infrastructure/Services/BHIS/`, `EHR.Blazor/Components/Pages/BHIS/`, `BHISHomeVisit/SchoolVisit/CommunityVisit/Crisis` note types) | **T** |
 | C54 | "Our initial appointment is typically 60 minutes"; "follow-up sessions 45–60 minutes" | `resources.html:167,539,550`, `services.html:165` | scheduling durations are configuration/production data | **?** |
@@ -342,8 +387,19 @@ looks like it protects it — the inactivity timer — only announces.
    validation with different error text ("This field is required" vs "First name is
    required."). Whichever is fixed first, the other still fires and still cancels.
 3. **`NoteType.GroupNote`, `FamilyNote`, `TelehealthNote`** — three enum members, zero usages
-   each (`NoteType.cs:42,45,48`). The field exists and its presence reads as support. The
-   website sells Group Therapy as one of four headline services on every page of the site.
+   each (`NoteType.cs:42,45,48`). **Corrected 2026-08-01 (§0.1):** this item originally read
+   their deadness as evidence that group therapy was unsupported. It is not — all three name
+   capabilities the software *does* have by another route (group and family therapy keyed on
+   CPT 90853/90846/90847, telehealth on `Appointment.IsTelehealth`). What remains is a real but
+   smaller defect, and it is a trap rather than mere clutter: the group behaviour is keyed on
+   the **procedure code**, so anyone who later wires `NoteType.GroupNote` as the way to mark a
+   group note creates a second, unkeyed path — such a note would *not* receive the 90853
+   overlap exemption (`ClinicalNoteOverlapGuardService.cs:82`) and would be reported as a
+   provider time conflict against the rest of its own group. Delete the three members or key
+   the behaviour off them; do not leave both.
+   Also dead alongside them: `ProgressNoteService.GetProcedureCodes()` (`:610-624`), a
+   hard-coded nine-code list with zero callers that duplicates — and now drifts from — the
+   `TherapyProcedures` table the UI actually reads (`SeedData.cs:1044-1057`, ten codes).
 4. **`AssessmentDocument.IsEncrypted`** — one writer writing `false`, zero readers, a comment
    asserting HIPAA compliance. §2.1. Confirmed independently of wave 2.
 5. **The cookie banner.** Announces a cookie policy for cookies that do not exist, and stores
@@ -386,7 +442,8 @@ rewrites: replace two placeholders, and reconcile one instruction with one butto
 ## §8 — Verified / inferred / could-not-check
 
 **Verified** (I read the code and, where behavioural, ran it): §1 in full, by harness. C6, C7,
-C9, C10–C15, C18–C23, C29–C31, C33, C42–C45, C48, C50, C51 (software support), C53, C55, C56,
+C9, C10–C15, C18–C23, C29–C31, C33, C42–C45, C48, C50, C51 (software support — **re-checked
+and reversed 2026-08-01, §0.1**; it is supported, and the original entry here was wrong), C53, C55, C56,
 C58, and all twelve accessibility checks in §2 G. The portal denominators (18 pages, 11
 services) were re-derived from the tree and match PAU-153 exactly.
 
@@ -405,7 +462,7 @@ produces GFEs by hand is not).
 | 3 | Which telehealth platform is used, and is there a BAA? | a contract, not a repository | Sylvia — decides C27, C28 |
 | 4 | Is "1,000+ clients served" true? | `SELECT COUNT(*) FROM Clients;` | **PAU-166** — decides C57 |
 | 5 | Is "Enforce HTTPS" on for the GitHub Pages site? | repository settings | whoever owns the Pages config — decides C8 |
-| 6 | Does the practice actually run therapy groups? | practice answer | decides the clinical half of C51 |
+| 6 | Does the practice actually run therapy groups, and are the four named group types current? | practice answer | decides the clinical half of C51 — the software half is settled and is a **yes** (§0.1) |
 | 7 | Are all ten named insurance panels currently contracted? | payer configuration in production | **PAU-166** — decides C49 |
 
 **Two production reads for PAU-166**, both single-row and read-only. I have not run them and
@@ -420,8 +477,11 @@ check something to write?**
 
 **Outran the build** — aspirational at the time, never revisited: C11, C12, C13, C19, C20
 (the portal capability set — written from a plan), C37–C41 (the whole No Surprises Act page
-describes an intended process), C51 (Group Therapy sold as a shipped service), C7 (analytics
-that were presumably intended).
+describes an intended process), C7 (analytics that were presumably intended).
+~~C51 (Group Therapy sold as a shipped service)~~ — **withdrawn 2026-08-01, §0.1.** Group
+Therapy is shipped; the copy did not outrun this build. Removing it leaves the category
+smaller and more honest, and the lesson belongs in the other column: the audit itself is the
+thing that outran its evidence here.
 
 **Somebody had to check something** — the interesting category, and there are four:
 
@@ -475,8 +535,11 @@ Each filed exactly once, at the end of the run, per the wave-2 correction.
 | F3 | **PAU-243** | No Good Faith Estimate mechanism in the software; NSA notice ships NPI/TIN placeholders | **high** |
 | F4 | *not filed — see below* | PAU-133's five portal claims are still live; the corrections are unmerged | **medium** |
 | F5 | **PAU-244** | Website states the client portal is a third-party vendor product | **medium** |
-| F6 | **PAU-245** | `GroupNote`/`FamilyNote`/`TelehealthNote` have zero usages; Group Therapy is a headline service | **medium** |
+| F6 | **PAU-245** | `GroupNote`/`FamilyNote`/`TelehealthNote` have zero usages; ~~Group Therapy is a headline service~~ | ~~medium~~ → **low** |
 | F7·F8 | **PAU-246** | `CLAUDE.md` roster, homepage tenure figures, cookie banner | **low** |
+
+**F6 was reversed on 2026-08-01** — see §0.1. The website claim it questioned is true; the
+ticket survives only as a dead-enum cleanup in the EHR repo.
 
 **F4 is deliberately not a ticket.** It is a status fact about **PAU-133** (currently
 `in_review`) — that its corrections sit unmerged on `fix/portal-capability-copy` while
