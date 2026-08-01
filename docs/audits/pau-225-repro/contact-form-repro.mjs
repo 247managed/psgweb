@@ -36,6 +36,12 @@ page.on('request', r => outbound.push({ method: r.method(), url: r.url(), post: 
 await page.goto(`${base}/pages/contact.html`, { waitUntil: 'networkidle' });
 const loadMark = outbound.length;  // ignore asset loads
 
+if (await page.locator('#contact-form').count() === 0) {
+  console.log('  >>> NOT reproduced: there is no contact form on this page.');
+  console.log('      Run contact-page-verify.mjs to check the page is honest about that.');
+  await browser.close(); server.close(); process.exit(1);
+}
+
 // A realistic first-contact message from somebody asking for an appointment.
 const MESSAGE = 'Please call me back, I would like to set up a first appointment.';
 await page.fill('#first-name', 'Test');
