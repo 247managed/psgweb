@@ -86,8 +86,32 @@ check('contact.html offers no message field or submit button', controls === 0, `
 const body = (await page.locator('main').innerText()).replace(/\s+/g, ' ');
 check('contact.html states there is no online message form',
   /does not have an online message form/i.test(body));
-check('contact.html does not promise a response time',
-  !/1-2 business days/i.test(body) && !/we will respond/i.test(body));
+// Response-time promises. The original check here tested for the two literal
+// strings the old form printed ("1-2 business days", "we will respond"), which
+// meant it would have gone green on any reworded version of the same mistake.
+// Test the property instead: a promise to get back to you inside a named window.
+//
+// Two sentences on the site are deliberately NOT the PAU-241 defect: they are
+// promises about what staff do on channels that actually work (voicemail,
+// accessibility email), not about code that cannot do what it claims. A human
+// has not yet ruled on whether the practice wants to make them. They are listed
+// here so they stay visible on every run without keeping this guard permanently
+// red -- and so that anything NOT on this list fails loudly. Do not add to this
+// list to make a run go green; that is the mistake this check exists to catch.
+const RESPONSE_PROMISE = /(respond|reply|follow up|get back to you|return your call)[^.]{0,60}(business day|hour|week|day)/i;
+const ADJUDICATED = [
+  // pages/contact.html FAQ 4 -- voicemail callback. PAU-306.
+  /leave a voicemail and we will return your call the next business day/i,
+];
+const sentences = body.split(/(?<=[.!?])\s+/);
+const promises = sentences.filter(s => RESPONSE_PROMISE.test(s));
+const unreviewed = promises.filter(s => !ADJUDICATED.some(a => a.test(s)));
+check('contact.html makes no unreviewed response-time promise',
+  unreviewed.length === 0,
+  unreviewed.map(s => s.trim()).join(' | '));
+for (const s of promises.filter(s => ADJUDICATED.some(a => a.test(s)))) {
+  console.log(`  NOTE  known response-time promise, awaiting a human decision (PAU-306):\n        "${s.trim()}"`);
+}
 
 const phone   = await page.locator('a[href="tel:6418562688"]').count();
 const email   = await page.locator('a[href^="mailto:info@paulagordy.com"]').count();
