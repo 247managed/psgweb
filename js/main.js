@@ -1,6 +1,6 @@
 /**
  * Paula S. Gordy LISW, LLC - Main JavaScript
- * Handles navigation, forms, accordions, and accessibility features
+ * Handles navigation, accordions, and accessibility features
  */
 
 (function () {
@@ -108,226 +108,6 @@
         });
       });
     });
-  }
-
-  // ==========================================
-  // Contact Form - HIPAA-Aware Handling
-  // ==========================================
-  function initContactForm() {
-    const form = document.getElementById('contact-form');
-    if (!form) return;
-
-    // Form validation
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      var isValid = true;
-      var errors = [];
-
-      // Clear previous errors
-      var errorElements = form.querySelectorAll('.form-error');
-      errorElements.forEach(function (el) { el.remove(); });
-      var errorInputs = form.querySelectorAll('.form-input--error');
-      errorInputs.forEach(function (el) { el.classList.remove('form-input--error'); });
-
-      // Required field validation
-      var requiredFields = form.querySelectorAll('[required]');
-      requiredFields.forEach(function (field) {
-        if (!field.value.trim()) {
-          isValid = false;
-          showFieldError(field, 'This field is required');
-          errors.push(field.getAttribute('aria-label') || field.name);
-        }
-      });
-
-      // Email validation
-      var emailField = form.querySelector('input[type="email"]');
-      if (emailField && emailField.value.trim()) {
-        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailPattern.test(emailField.value)) {
-          isValid = false;
-          showFieldError(emailField, 'Please enter a valid email address');
-        }
-      }
-
-      // Phone validation (optional field, but validate format if filled)
-      var phoneField = form.querySelector('input[type="tel"]');
-      if (phoneField && phoneField.value.trim()) {
-        var phoneClean = phoneField.value.replace(/[\s\-\(\)\.]/g, '');
-        if (phoneClean.length < 10 || !/^\+?\d+$/.test(phoneClean)) {
-          isValid = false;
-          showFieldError(phoneField, 'Please enter a valid phone number');
-        }
-      }
-
-      // PHI acknowledgment checkbox
-      var phiCheckbox = form.querySelector('#phi-acknowledgment');
-      if (phiCheckbox && !phiCheckbox.checked) {
-        isValid = false;
-        showFieldError(phiCheckbox, 'You must acknowledge this before submitting');
-      }
-
-      // PHI Content Scanning - warn about potential PHI in message
-      var messageField = form.querySelector('textarea[name="message"]');
-      if (messageField && messageField.value.trim()) {
-        var phiWarnings = scanForPHI(messageField.value);
-        if (phiWarnings.length > 0) {
-          var proceed = confirm(
-            'Your message may contain sensitive health information:\n\n' +
-            '- ' + phiWarnings.join('\n- ') + '\n\n' +
-            'This form is NOT a secure communication method. ' +
-            'Please remove any protected health information (PHI) before submitting.\n\n' +
-            'Do you want to go back and edit your message?'
-          );
-          if (proceed) {
-            messageField.focus();
-            return;
-          }
-        }
-      }
-
-      if (isValid) {
-        // In production, this would submit to a secure server endpoint
-        // For now, show success message
-        showFormSuccess(form);
-      } else {
-        // Focus the first field with an error
-        var firstError = form.querySelector('.form-input--error, .form-error');
-        if (firstError) {
-          var targetField = firstError.classList.contains('form-error')
-            ? firstError.previousElementSibling
-            : firstError;
-          if (targetField && targetField.focus) targetField.focus();
-        }
-
-        // Announce errors for screen readers
-        announceToScreenReader(errors.length + ' errors found. Please correct the highlighted fields.');
-      }
-    });
-
-    // Real-time validation on blur
-    var inputs = form.querySelectorAll('.form-input, .form-textarea, .form-select');
-    inputs.forEach(function (input) {
-      input.addEventListener('blur', function () {
-        if (this.hasAttribute('required') && !this.value.trim()) {
-          showFieldError(this, 'This field is required');
-        } else {
-          clearFieldError(this);
-        }
-      });
-
-      // Clear error on input
-      input.addEventListener('input', function () {
-        clearFieldError(this);
-      });
-    });
-  }
-
-  function showFieldError(field, message) {
-    field.classList.add('form-input--error');
-    field.style.borderColor = '#e74c3c';
-
-    // Remove existing error message
-    var existingError = field.parentNode.querySelector('.form-error');
-    if (existingError) existingError.remove();
-
-    var error = document.createElement('span');
-    error.className = 'form-error';
-    error.setAttribute('role', 'alert');
-    error.textContent = message;
-
-    if (field.type === 'checkbox') {
-      field.closest('.form-group').appendChild(error);
-    } else {
-      field.parentNode.appendChild(error);
-    }
-  }
-
-  function clearFieldError(field) {
-    field.classList.remove('form-input--error');
-    field.style.borderColor = '';
-    var error = field.parentNode.querySelector('.form-error');
-    if (error) error.remove();
-  }
-
-  function showFormSuccess(form) {
-    var successDiv = document.createElement('div');
-    successDiv.className = 'notice notice--success';
-    successDiv.setAttribute('role', 'alert');
-    successDiv.innerHTML =
-      '<span class="notice__icon">&#10003;</span>' +
-      '<div>' +
-      '<p><strong>Thank you for contacting us!</strong></p>' +
-      '<p>We have received your message and will respond within 1-2 business days. ' +
-      'If you need immediate assistance, please call our office at ' +
-      '<a href="tel:+16418562688">(641) 856-2688</a>.</p>' +
-      '</div>';
-
-    form.style.display = 'none';
-    form.parentNode.insertBefore(successDiv, form);
-
-    // Scroll to success message
-    successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }
-
-  /**
-   * Basic PHI pattern detection for contact form
-   * Warns users if their message appears to contain health information
-   */
-  function scanForPHI(text) {
-    var warnings = [];
-    var lowerText = text.toLowerCase();
-
-    // Check for medication names patterns
-    if (/\b(mg|milligram|prescription|medication|medicine|dosage|refill)\b/i.test(text)) {
-      warnings.push('Possible medication or prescription information detected');
-    }
-
-    // Check for diagnostic terms
-    if (/\b(diagnos|disorder|syndrome|condition|symptoms?)\b/i.test(text)) {
-      warnings.push('Possible diagnostic or medical condition information detected');
-    }
-
-    // Check for SSN patterns
-    if (/\b\d{3}[-\s]?\d{2}[-\s]?\d{4}\b/.test(text)) {
-      warnings.push('Possible Social Security Number detected');
-    }
-
-    // Check for date of birth patterns
-    if (/\b(date of birth|dob|born on|birthday)\b/i.test(text)) {
-      warnings.push('Possible date of birth information detected');
-    }
-
-    // Check for insurance ID patterns
-    if (/\b(member\s*id|policy\s*number|group\s*number|insurance\s*id|subscriber\s*id)\b/i.test(text)) {
-      warnings.push('Possible insurance identification information detected');
-    }
-
-    // Check for detailed health descriptions
-    if (/\b(suicid|self.?harm|overdos|abuse|assault|rape)\b/i.test(text)) {
-      warnings.push('Sensitive health information detected - please use secure portal or call us directly');
-    }
-
-    return warnings;
-  }
-
-  // ==========================================
-  // Screen Reader Announcements
-  // ==========================================
-  function announceToScreenReader(message) {
-    var announcer = document.getElementById('sr-announcer');
-    if (!announcer) {
-      announcer = document.createElement('div');
-      announcer.id = 'sr-announcer';
-      announcer.setAttribute('role', 'status');
-      announcer.setAttribute('aria-live', 'polite');
-      announcer.className = 'visually-hidden';
-      document.body.appendChild(announcer);
-    }
-    announcer.textContent = '';
-    setTimeout(function () {
-      announcer.textContent = message;
-    }, 100);
   }
 
   // ==========================================
@@ -517,34 +297,6 @@
   }
 
   // ==========================================
-  // HIPAA Compliance - Session Timeout Warning
-  // ==========================================
-  function initSessionWarning() {
-    // Only initialize if there's a form on the page
-    var form = document.getElementById('contact-form');
-    if (!form) return;
-
-    var warningTimeout;
-    var hasStartedTyping = false;
-
-    form.addEventListener('input', function () {
-      if (!hasStartedTyping) {
-        hasStartedTyping = true;
-      }
-
-      // Reset timeout
-      clearTimeout(warningTimeout);
-
-      // Warn after 15 minutes of inactivity while filling form
-      warningTimeout = setTimeout(function () {
-        if (hasStartedTyping) {
-          announceToScreenReader('You have been inactive for 15 minutes. Please submit or clear the form to protect your information.');
-        }
-      }, 15 * 60 * 1000);
-    });
-  }
-
-  // ==========================================
   // External Link Warning
   // ==========================================
   function initExternalLinks() {
@@ -618,7 +370,6 @@
   function init() {
     initMobileNav();
     initAccordions();
-    initContactForm();
     initSmoothScroll();
     initHeaderScroll();
     initScrollAnimations();
@@ -626,7 +377,6 @@
     initPrintButtons();
     initBackToTop();
     initActiveNav();
-    initSessionWarning();
     initExternalLinks();
     initCookieNotice();
   }
