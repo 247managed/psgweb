@@ -49,6 +49,44 @@ Two forms use it:
 
 8. Commit and push to `main`. GitHub Pages redeploys automatically.
 
+## The pre-filled Release of Information
+
+Every BHIS referral email carries a PDF copy of the practice's **Authorization to Obtain or
+Release Health Care Information**, pre-filled from the referral so staff are not retyping
+what the referrer already gave us. It is generated from HTML by Apps Script
+(`Utilities.newBlob(...).getAs("application/pdf")`) - no external service.
+
+**It is not a completed authorization and is labelled as such** in a banner across the top,
+in the filename (`Release-of-Information-PREFILLED-<name>.pdf`) and in the email body.
+
+Pre-filled from the referral:
+
+| Field on the form | Comes from |
+|---|---|
+| Client Name | client first + last name |
+| Date of Birth | client DOB, rendered as "April 12, 2015" |
+| Parent/Guardian | parent/guardian name |
+| Name or agency to release and receive information | referrer's agency, or their name if no agency |
+| Phone | referrer phone |
+| With the following agency | the practice block in `CONFIG.practice` |
+| Purpose | `CONFIG.releasePurpose` |
+
+Deliberately left blank, and why:
+
+- **Signature, date, expiration date.** Referrals often come from school staff and case
+  managers who cannot sign a release for the family. The referrer's typed name from the
+  referral is never reused as the authorizing signature.
+- **Which records may be shared.** The client's choice, not ours to assume.
+- **The specific-consent initials** (mental health, AIDS/HIV, substance abuse). These
+  require specific consent under federal law and must never be pre-marked.
+- **SS#.** The web form does not collect it and should not. The field is marked
+  "not collected online".
+- **Relationship of the signer, Self / Other, Return To.** We do not know who will sign.
+
+To turn the attachment off, set `CONFIG.attachReleaseForm = false` and redeploy. If PDF
+generation ever fails the referral email still goes out, without the attachment, and the
+body tells staff to use the blank paper form.
+
 ## Testing
 
 - Open the `/exec` URL in a browser. It should return `{"ok":true,"service":"psgweb-forms"}`.
@@ -56,7 +94,9 @@ Two forms use it:
   confirm the email arrives at info@paulagordy.com.
 - Submit a test referral at <https://paulagordy.com/pages/bhis-referral.html> with
   obviously fake client details and confirm it arrives at jalyn.day@paulagordy.com.
-  Delete the test email afterwards.
+  **Open the attached PDF and check the layout** - the HTML-to-PDF conversion is done by
+  Google and has not been eyeballed on a real submission yet. Confirm it fits one page and
+  that the signature block is empty. Delete the test email afterwards.
 - If a submission fails, the visitor sees an error with the office phone number and
   their answers are preserved. The form never shows a false "submitted" message.
 

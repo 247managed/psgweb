@@ -51,7 +51,7 @@
             groups[el.name].value += ', ' + value;
             return;
           }
-          var entry = { label: groupLabel, value: value };
+          var entry = { key: el.name, label: groupLabel, value: value };
           groups[el.name] = entry;
           fields.push(entry);
           return;
@@ -70,7 +70,9 @@
         if (!value) return;
       }
 
-      fields.push({ label: label, value: value });
+      /* key is the input's name. The backend uses it to pre-fill the
+         Release of Information PDF without matching on display labels. */
+      fields.push({ key: el.name, label: label, value: value });
     });
 
     return fields;
