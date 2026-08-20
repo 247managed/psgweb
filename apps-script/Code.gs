@@ -247,26 +247,29 @@ function buildReleaseHtml(values) {
   var clientName = joinName(values);
   var otherAgency = values['referrer_org'] || values['referrer_name'] || '';
 
+  /* Tuned to fit on a single page. The first version ran to two, with
+     "Please Return To" and the recipient notice spilling over. If you add
+     rows here, re-check the page count on a real submission. */
   var css =
-    '@page { size: letter; margin: 0.5in; }' +
-    'body { font-family: Georgia, "Times New Roman", serif; font-size: 9.5pt; color: #000; margin: 0; }' +
-    'h1 { font-size: 13pt; text-align: center; margin: 0 0 2pt; letter-spacing: .5pt; }' +
-    'h2 { font-size: 10.5pt; text-align: center; font-weight: normal; margin: 0 0 8pt; }' +
-    '.banner { border: 1.5pt solid #000; background: #eee; padding: 5pt 7pt; margin-bottom: 8pt; font-family: Arial, Helvetica, sans-serif; font-size: 8pt; }' +
-    '.banner strong { font-size: 8.5pt; }' +
-    'table { width: 100%; border-collapse: collapse; margin-bottom: 6pt; }' +
-    'td, th { border: 0.75pt solid #000; padding: 3pt 4pt; vertical-align: top; font-size: 9pt; }' +
+    '@page { size: letter; margin: 0.4in; }' +
+    'body { font-family: Georgia, "Times New Roman", serif; font-size: 8.5pt; color: #000; margin: 0; }' +
+    'h1 { font-size: 11.5pt; text-align: center; margin: 0 0 1pt; letter-spacing: .5pt; }' +
+    'h2 { font-size: 9.5pt; text-align: center; font-weight: normal; margin: 0 0 4pt; }' +
+    '.banner { border: 1.5pt solid #000; background: #eee; padding: 3pt 5pt; margin-bottom: 4pt; font-family: Arial, Helvetica, sans-serif; font-size: 7pt; line-height: 1.25; }' +
+    '.banner strong { font-size: 7.5pt; }' +
+    'table { width: 100%; border-collapse: collapse; margin-bottom: 3pt; }' +
+    'td, th { border: 0.75pt solid #000; padding: 2pt 3pt; vertical-align: top; font-size: 8.5pt; }' +
     '.lbl { white-space: nowrap; }' +
     '.fill { font-family: Arial, Helvetica, sans-serif; font-weight: bold; }' +
-    '.blank { color: #666; font-family: Arial, Helvetica, sans-serif; font-size: 7.5pt; font-style: italic; }' +
-    '.stmt { text-align: center; font-weight: bold; padding: 4pt; }' +
-    '.para { text-align: justify; font-size: 8.5pt; line-height: 1.35; padding: 5pt 6pt; border: 0.75pt solid #000; margin-bottom: 6pt; }' +
-    '.box { display: inline-block; width: 8pt; height: 8pt; border: 0.75pt solid #000; margin-right: 3pt; vertical-align: -1pt; }' +
-    '.items td { border: none; padding: 1.5pt 4pt; font-size: 8.5pt; }' +
+    '.blank { color: #666; font-family: Arial, Helvetica, sans-serif; font-size: 7pt; font-style: italic; }' +
+    '.stmt { text-align: center; font-weight: bold; padding: 2pt; }' +
+    '.para { text-align: justify; font-size: 7.5pt; line-height: 1.2; padding: 3pt 5pt; border: 0.75pt solid #000; margin-bottom: 3pt; }' +
+    '.box { display: inline-block; width: 7pt; height: 7pt; border: 0.75pt solid #000; margin-right: 3pt; vertical-align: -1pt; }' +
+    '.items td { border: none; padding: 1pt 3pt; font-size: 8pt; }' +
     '.items { border: 0.75pt solid #000; }' +
-    '.sig { height: 30pt; }' +
-    '.notice { margin-top: 8pt; font-size: 8pt; text-align: justify; line-height: 1.3; }' +
-    '.notice h3 { font-size: 9pt; text-align: center; margin: 0 0 3pt; font-weight: normal; }';
+    '.sig { height: 22pt; }' +
+    '.notice { margin-top: 4pt; font-size: 7pt; text-align: justify; line-height: 1.2; }' +
+    '.notice h3 { font-size: 8pt; text-align: center; margin: 0 0 2pt; font-weight: normal; }';
 
   var items = [
     ['Discharge Summary', 'Psychological Evals', 'Diagnosis', 'Treatment/Service Plan'],
