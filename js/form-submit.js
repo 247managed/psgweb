@@ -9,15 +9,17 @@
    GitHub Pages only serves this page; it never receives the
    submitted data.
 
-   SETUP: paste the Apps Script deployment URL below.
-   See apps-script/README.md for deployment steps.
+   The endpoint below is the Apps Script web app deployment.
+   To redeploy or change recipients, see apps-script/README.md.
    ============================================================ */
 (function (window, document) {
   'use strict';
 
   /* ---- CONFIGURATION -------------------------------------- */
-  /* Replace with the /exec URL from the Apps Script deployment. */
-  var ENDPOINT = 'PASTE_APPS_SCRIPT_WEB_APP_URL_HERE';
+  /* Apps Script web app /exec URL. Must be the plain /macros/s/<id>/exec
+     form deployed with access "Anyone" - the /a/macros/<domain>/ variant
+     forces a Google sign-in that public visitors cannot pass. */
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbygvlez8XW24VaTEemHcx0iw3hl54h5cV4io5yDieG6fZMHN9lrY-J5AtLCaS8_b3Pk/exec';
 
   var TIMEOUT_MS = 25000;
   var MIN_FILL_SECONDS = 4; /* submissions faster than this are treated as bots */
