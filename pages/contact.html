@@ -111,6 +111,7 @@
             <ul class="nav-dropdown__menu" role="menu" aria-label="Client Resources submenu">
               <li role="none"><a href="resources.html" role="menuitem">New Patients</a></li>
               <li role="none"><a href="forms.html" role="menuitem">Forms &amp; Documents</a></li>
+              <li role="none"><a href="bhis-referral.html" role="menuitem">BHIS Referral</a></li>
               <li role="none"><a href="resources.html#education" role="menuitem">Client Education</a></li>
               <li role="none"><a href="resources.html#faq" role="menuitem">FAQ</a></li>
               <li role="none"><a href="blog.html" role="menuitem">Blog</a></li>
@@ -270,6 +271,12 @@
 
             <form id="contact-form" action="#" method="post" novalidate>
 
+              <!-- Spam trap: intentionally hidden from users and screen readers -->
+              <div aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden;">
+                <label for="contact-website">Leave this field blank</label>
+                <input type="text" id="contact-website" name="website" data-honeypot="true" tabindex="-1" autocomplete="off">
+              </div>
+
               <div class="grid grid--2">
                 <div class="form-group">
                   <label for="first-name" class="form-label">First Name <span class="required" aria-hidden="true">*</span></label>
@@ -337,7 +344,7 @@
 
               <div class="form-group">
                 <label class="form-checkbox">
-                  <input type="checkbox" id="phi-acknowledgment" name="phi_acknowledgment" required aria-required="true">
+                  <input type="checkbox" id="phi-acknowledgment" name="phi_acknowledgment" data-label="PHI acknowledgment" data-value="Acknowledged this form is not secure and contains no PHI" required aria-required="true">
                   <span>I understand this form is not a secure communication method and I will not include any protected health information (PHI). <span class="required" aria-hidden="true">*</span></span>
                 </label>
               </div>
@@ -640,6 +647,7 @@
 
   <!-- JavaScript -->
   <script src="../js/main.js"></script>
+  <script src="../js/form-submit.js"></script>
 
   <!-- Inline Accordion & Mobile Nav Script -->
   <script>
@@ -682,59 +690,99 @@
       });
     })();
 
-    // Basic form validation
+    // Contact form validation and submission
     (function() {
       var form = document.getElementById('contact-form');
-      if (form) {
-        form.addEventListener('submit', function(e) {
-          e.preventDefault();
-          var valid = true;
-          var firstName = document.getElementById('first-name');
-          var lastName = document.getElementById('last-name');
-          var email = document.getElementById('email');
-          var acknowledgment = document.getElementById('phi-acknowledgment');
+      if (!form) return;
 
-          // Clear previous errors
-          form.querySelectorAll('.form-error').forEach(function(err) { err.remove(); });
-          form.querySelectorAll('.form-input, .form-textarea, .form-select').forEach(function(input) {
-            input.style.borderColor = '';
-          });
+      var startedAt = Date.now();
+      var completed = false;
+      var button = form.querySelector('button[type="submit"]');
 
-          function showError(field, message) {
-            field.style.borderColor = '#e74c3c';
-            var error = document.createElement('span');
-            error.className = 'form-error';
-            error.setAttribute('role', 'alert');
-            error.textContent = message;
-            field.parentNode.appendChild(error);
-            valid = false;
-          }
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (completed) return;
+        var valid = true;
+        var firstName = document.getElementById('first-name');
+        var lastName = document.getElementById('last-name');
+        var email = document.getElementById('email');
+        var acknowledgment = document.getElementById('phi-acknowledgment');
 
-          if (!firstName.value.trim()) showError(firstName, 'First name is required.');
-          if (!lastName.value.trim()) showError(lastName, 'Last name is required.');
-          if (!email.value.trim()) {
-            showError(email, 'Email address is required.');
-          } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
-            showError(email, 'Please enter a valid email address.');
-          }
-          if (!acknowledgment.checked) {
-            var ackGroup = acknowledgment.closest('.form-group');
-            var error = document.createElement('span');
-            error.className = 'form-error';
-            error.setAttribute('role', 'alert');
-            error.textContent = 'You must acknowledge the privacy notice to submit this form.';
-            ackGroup.appendChild(error);
-            valid = false;
-          }
+        // Clear previous errors
+        form.querySelectorAll('.form-error').forEach(function(err) { err.remove(); });
+        form.querySelectorAll('.form-input, .form-textarea, .form-select').forEach(function(input) {
+          input.style.borderColor = '';
+        });
+        var previousBanner = form.querySelector('[data-submit-error]');
+        if (previousBanner) previousBanner.remove();
 
-          if (valid) {
-            // In production, this would submit to a server endpoint.
-            // For now, show a success message.
+        function showError(field, message) {
+          field.style.borderColor = '#e74c3c';
+          var error = document.createElement('span');
+          error.className = 'form-error';
+          error.setAttribute('role', 'alert');
+          error.textContent = message;
+          field.parentNode.appendChild(error);
+          valid = false;
+        }
+
+        if (!firstName.value.trim()) showError(firstName, 'First name is required.');
+        if (!lastName.value.trim()) showError(lastName, 'Last name is required.');
+        if (!email.value.trim()) {
+          showError(email, 'Email address is required.');
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+          showError(email, 'Please enter a valid email address.');
+        }
+        if (!acknowledgment.checked) {
+          var ackGroup = acknowledgment.closest('.form-group');
+          var error = document.createElement('span');
+          error.className = 'form-error';
+          error.setAttribute('role', 'alert');
+          error.textContent = 'You must acknowledge the privacy notice to submit this form.';
+          ackGroup.appendChild(error);
+          valid = false;
+        }
+
+        function showSubmitError(message) {
+          var notice = document.createElement('div');
+          notice.className = 'notice notice--error';
+          notice.setAttribute('role', 'alert');
+          notice.setAttribute('data-submit-error', 'true');
+          notice.innerHTML = '<span class="notice__icon" aria-hidden="true">!</span><div>' +
+            '<p><strong>We could not send your message.</strong> ' + message + '</p>' +
+            '<p>Your message is still here, so nothing is lost. Please call us at ' +
+            '<a href="tel:6418562688">(641) 856-2688</a> or email ' +
+            '<a href="mailto:info@paulagordy.com">info@paulagordy.com</a> instead.</p></div>';
+          button.parentNode.insertBefore(notice, button);
+          notice.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        if (!valid) return;
+
+        if (window.PSGForms.looksAutomated(form, startedAt)) {
+          showSubmitError('The form was submitted too quickly to process.');
+          return;
+        }
+
+        var senderName = firstName.value.trim() + ' ' + lastName.value.trim();
+        var fields = window.PSGForms.collect(form);
+
+        button.disabled = true;
+        var originalLabel = button.textContent;
+        button.textContent = 'Sending...';
+
+        window.PSGForms.send('contact', 'Website Contact: ' + senderName, fields)
+          .then(function() {
+            completed = true;
             form.innerHTML = '<div class="notice notice--success" role="status"><span class="notice__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span><div><p><strong>Thank you for reaching out!</strong></p><p>Your message has been received. We will respond within 1-2 business days. If you need immediate assistance, please call us at <a href="tel:6418562688">(641) 856-2688</a>.</p></div></div>';
             window.scrollTo({ top: form.offsetTop - 120, behavior: 'smooth' });
-          }
-        });
-      }
+          })
+          .catch(function(err) {
+            button.disabled = false;
+            button.textContent = originalLabel;
+            showSubmitError(err.message || 'Something went wrong.');
+          });
+      });
     })();
   </script>
 
