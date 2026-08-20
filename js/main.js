@@ -117,91 +117,29 @@
     const form = document.getElementById('contact-form');
     if (!form) return;
 
-    // Form validation
+    // PHI advisory only. Field validation and delivery live in the page
+    // script (pages/contact.html), which posts to the Apps Script endpoint.
+    // This listener is registered first, so it can stop the send when the
+    // visitor chooses to go back and edit their message.
     form.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      var isValid = true;
-      var errors = [];
-
-      // Clear previous errors
-      var errorElements = form.querySelectorAll('.form-error');
-      errorElements.forEach(function (el) { el.remove(); });
-      var errorInputs = form.querySelectorAll('.form-input--error');
-      errorInputs.forEach(function (el) { el.classList.remove('form-input--error'); });
-
-      // Required field validation
-      var requiredFields = form.querySelectorAll('[required]');
-      requiredFields.forEach(function (field) {
-        if (!field.value.trim()) {
-          isValid = false;
-          showFieldError(field, 'This field is required');
-          errors.push(field.getAttribute('aria-label') || field.name);
-        }
-      });
-
-      // Email validation
-      var emailField = form.querySelector('input[type="email"]');
-      if (emailField && emailField.value.trim()) {
-        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailPattern.test(emailField.value)) {
-          isValid = false;
-          showFieldError(emailField, 'Please enter a valid email address');
-        }
-      }
-
-      // Phone validation (optional field, but validate format if filled)
-      var phoneField = form.querySelector('input[type="tel"]');
-      if (phoneField && phoneField.value.trim()) {
-        var phoneClean = phoneField.value.replace(/[\s\-\(\)\.]/g, '');
-        if (phoneClean.length < 10 || !/^\+?\d+$/.test(phoneClean)) {
-          isValid = false;
-          showFieldError(phoneField, 'Please enter a valid phone number');
-        }
-      }
-
-      // PHI acknowledgment checkbox
-      var phiCheckbox = form.querySelector('#phi-acknowledgment');
-      if (phiCheckbox && !phiCheckbox.checked) {
-        isValid = false;
-        showFieldError(phiCheckbox, 'You must acknowledge this before submitting');
-      }
-
-      // PHI Content Scanning - warn about potential PHI in message
       var messageField = form.querySelector('textarea[name="message"]');
-      if (messageField && messageField.value.trim()) {
-        var phiWarnings = scanForPHI(messageField.value);
-        if (phiWarnings.length > 0) {
-          var proceed = confirm(
-            'Your message may contain sensitive health information:\n\n' +
-            '- ' + phiWarnings.join('\n- ') + '\n\n' +
-            'This form is NOT a secure communication method. ' +
-            'Please remove any protected health information (PHI) before submitting.\n\n' +
-            'Do you want to go back and edit your message?'
-          );
-          if (proceed) {
-            messageField.focus();
-            return;
-          }
-        }
-      }
+      if (!messageField || !messageField.value.trim()) return;
 
-      if (isValid) {
-        // In production, this would submit to a secure server endpoint
-        // For now, show success message
-        showFormSuccess(form);
-      } else {
-        // Focus the first field with an error
-        var firstError = form.querySelector('.form-input--error, .form-error');
-        if (firstError) {
-          var targetField = firstError.classList.contains('form-error')
-            ? firstError.previousElementSibling
-            : firstError;
-          if (targetField && targetField.focus) targetField.focus();
-        }
+      var phiWarnings = scanForPHI(messageField.value);
+      if (!phiWarnings.length) return;
 
-        // Announce errors for screen readers
-        announceToScreenReader(errors.length + ' errors found. Please correct the highlighted fields.');
+      var goBack = confirm(
+        'Your message may contain sensitive health information:\n\n' +
+        '- ' + phiWarnings.join('\n- ') + '\n\n' +
+        'This form is NOT a secure communication method. ' +
+        'Please remove any protected health information (PHI) before submitting.\n\n' +
+        'Do you want to go back and edit your message?'
+      );
+
+      if (goBack) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        messageField.focus();
       }
     });
 
@@ -250,25 +188,6 @@
     if (error) error.remove();
   }
 
-  function showFormSuccess(form) {
-    var successDiv = document.createElement('div');
-    successDiv.className = 'notice notice--success';
-    successDiv.setAttribute('role', 'alert');
-    successDiv.innerHTML =
-      '<span class="notice__icon">&#10003;</span>' +
-      '<div>' +
-      '<p><strong>Thank you for contacting us!</strong></p>' +
-      '<p>We have received your message and will respond within 1-2 business days. ' +
-      'If you need immediate assistance, please call our office at ' +
-      '<a href="tel:+16418562688">(641) 856-2688</a>.</p>' +
-      '</div>';
-
-    form.style.display = 'none';
-    form.parentNode.insertBefore(successDiv, form);
-
-    // Scroll to success message
-    successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }
 
   /**
    * Basic PHI pattern detection for contact form
